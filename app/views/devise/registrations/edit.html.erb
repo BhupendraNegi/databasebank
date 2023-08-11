@@ -1,54 +1,51 @@
 <div class="container my-4">
   <%= link_to "<< Back", :back, class: "btn btn-sm btn-outline-primary"  %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="text-danger">
+    <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
   <div class="d-flex justify-content-center">
     <h4>Edit <%= resource_name.to_s.humanize %></h4>
   </div>
+  <br>
   <div class="d-flex justify-content-center">
 
-    <div class="card m-4 p-4">
-      <div class="container">
-        <div class="d-flex justify-content-center my-2">
-          
+    <div class="card p-4 bg-light", style="width: 30rem; height: 29rem;">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+        <div class="field mb-3">
+          <%= f.label :email, class: "text-secondary" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 75%;" %>
         </div>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class="field">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> characters minimum</em>
-            <% end %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-
-          <div class="d-flex justify-content-center my-2">
-            <div class="actions">
-              <%= f.submit "Update", class: "btn btn-sm btn-secondary" %>
-            </div>
-          </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="text-secondary">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+
+        <div class="field mb-3">
+          <%= f.label :password, class: "text-secondary" %> <i class="text-secondary">(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", style: "width: 75%;" %></br>
+          <% if @minimum_password_length %>
+            <em class="text-secondary"><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.label :password_confirmation, class: "text-secondary" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width: 75%;" %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.label :current_password , class: "text-secondary"%> <i class="text-secondary">(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", style: "width: 75%;" %>
+        </div>
+
+        <div class="d-flex justify-content-start my-2">
+          <div class="actions">
+            <%= f.submit "Update", class: "btn btn-sm btn-primary" %>
+          </div>
+        </div>
+      <% end %>
 
 <!--         <h3>Delete User</h3>
 
