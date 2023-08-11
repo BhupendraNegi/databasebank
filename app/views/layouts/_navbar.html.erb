@@ -3,7 +3,11 @@
     <div class="col-12">
       <div class="row justify-content-end">
         <div class="col-6 d-flex justify-content-start">
-          <a class="navbar-brand" href="/">Database Bank </a>
+          <% if user_signed_in? %>
+            <a class="navbar-brand" href="/home">Database Bank </a>
+          <% else %>
+            <a class="navbar-brand" href="/">Database Bank </a>
+          <% end %>
         </div>
         <div class="col-6 d-flex justify-content-end">
           <% unless user_signed_in? %>

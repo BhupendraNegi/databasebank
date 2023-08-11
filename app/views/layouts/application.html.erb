@@ -14,8 +14,12 @@
     <div class="container-fluid"> 
       <% if notice.present? || alert.present? %>
         <div class="container d-flex justify-content-center mt-2">
-          <div class="notice p-2 <%= notice.present? ? 'alert alert-success alert-dismissible fade show' : '' %>" role="alert"><%= notice %></div>
-          <div class="alert p-2 <%= alert.present? ? 'alert alert-danger alert-dismissible fade show' : '' %>" role="alert"><%= alert %></div>
+          <div class="notice p-2 <%= notice.present? ? 'alert alert-warning alert-dismissible fade show' : '' %>" role="alert">
+            <%= notice %>
+          </div>
+          <div class="alert p-2 <%= alert.present? ? 'alert alert-danger alert-dismissible fade show' : '' %>" role="alert">
+            <%= alert %>
+          </div>
         </div>
       <% end %>
 
