@@ -1,8 +1,8 @@
 class CreateleaveState < ActiveRecord::Migration[7.0]
   def change
     create_table :leave_states do |t|
-      t.integer :al
-      t.integer :cl
+      t.string :al
+      t.string :cl
       t.string :furlough, limit: nil
       t.text :remarks, limit: nil      
 

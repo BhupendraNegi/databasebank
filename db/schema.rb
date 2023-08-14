@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   end
 
   create_table "bn_nominal_rolls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "army_no"
+    t.string "army_no"
     t.string "rank"
     t.string "trade"
     t.string "name"
@@ -122,8 +122,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   end
 
   create_table "coy_leave_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "al"
-    t.integer "cl"
+    t.string "al"
+    t.string "cl"
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -182,8 +182,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   end
 
   create_table "leave_states", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "al"
-    t.integer "cl"
+    t.string "al"
+    t.string "cl"
     t.string "furlough"
     t.text "remarks"
     t.datetime "created_at", null: false

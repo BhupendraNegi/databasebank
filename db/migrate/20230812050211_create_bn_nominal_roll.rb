@@ -1,7 +1,7 @@
 class CreateBnNominalRoll < ActiveRecord::Migration[7.0]
   def change
     create_table :bn_nominal_rolls do |t|
-      t.integer :army_no
+      t.string :army_no
       t.string :rank, limit: nil
       t.string :trade, limit: nil
       t.string :name, limit: nil
