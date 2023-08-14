@@ -1,0 +1,41 @@
+
+<div class="container">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-3">
+        <h4>
+          BN NOMINAL ROLL
+        </h4>
+      </div>
+      <div class="col-1">
+        <%= link_to "Edit", edit_bn_nominal_roll_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+      <div class="col-1">
+        <%= button_to "Destroy", @bn_nominal_roll, method: :delete, class: "btn btn-sm btn-outline-primary" %>
+      </div>
+    </div>
+
+        
+
+
+    <table class="table table-bordered">
+      <thead class="bg-light">
+        <tr>
+          <% @bn_nominal_roll.attributes.except("updated_at", "created_at", "id").keys.each do | bn |%>
+            <th> <%= bn.titleize %> </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @bn_nominal_roll.attributes.except("updated_at", "created_at", "id").values.each do | bn |%>
+            <td><%= bn %> </td>
+          <% end %>      
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+</div>

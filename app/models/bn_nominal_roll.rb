@@ -1,0 +1,2 @@
+class BnNominalRoll < ApplicationRecord
+end

@@ -1,0 +1,88 @@
+<%= form_with(model: bn_nominal_roll) do |f| %>
+  <% if bn_nominal_roll.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bn_nominal_roll.errors.count, "error") %> prohibited this bn_nominal_roll from being saved:</h2>
+
+      <ul>
+        <% bn_nominal_roll.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :army_no, 'ARMY NO:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :army_no, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :rank, 'RANK:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :rank  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :name, 'NAME:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :name  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :trade, 'TRADE:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :trade %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :date_of_tos_in_unit, 'DATE OF TOS IN UNIT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :date_of_tos_in_unit %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :coy, 'COY:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :coy %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :civ_edn, 'CIV EDN:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :civ_edn %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :marital_status, 'MARITAL STATUS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :marital_status %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
