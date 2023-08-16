@@ -12,4 +12,5 @@ class BnNominalRoll < ApplicationRecord
     has_many :awards_and_achievements, dependent: :delete_all
     has_one :cor_drinker_non_drinker, dependent: :destroy
     has_one :leave_state, dependent: :destroy
+    has_one :max_health_report, dependent: :destroy
 end

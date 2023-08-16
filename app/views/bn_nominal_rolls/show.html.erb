@@ -253,5 +253,22 @@
     <% end %>
     <br>
     <hr> 
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          MAX HEALTH REPORT
+        </h5>
+      </div>
+      <% if @max_health_reports.blank? %>
+        <div class="col-2">
+          <%= link_to "+ Add Data", new_bn_nominal_roll_max_health_report_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+        </div>
+      <% end %>
+    </div>
+    <% if @max_health_reports.present? %>
+      <%= render partial: "max_health_reports/show", locals: { max_health_reports: @max_health_reports }%>
+    <% end %>
+    <br>
+    <hr> 
   </div>
 </div>

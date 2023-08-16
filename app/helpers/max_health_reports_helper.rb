@@ -1,0 +1,2 @@
+module MaxHealthReportsHelper
+end

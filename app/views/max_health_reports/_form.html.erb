@@ -1,0 +1,203 @@
+<%= form_with method: action, model: @max_health_report, url: url do | f | %>
+  <% if max_health_report.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(max_health_report.errors.count, "error") %> prohibited this max_health_report from being saved:</h2>
+
+      <ul>
+        <% max_health_report.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :barcode, 'BARCODE:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :barcode, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :ht, 'HT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :ht  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :wt, 'WT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :wt  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :bp, 'BP:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :bp %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :haemoglobin, 'HAEMOGLOBIN (13.0 - 17.0):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :haemoglobin  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :leucocyte, 'LEUCOCYTE (4.0 - 10.0):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :leucocyte  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :neutrophiles, 'NEUTROPHILS (40 - 80):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :neutrophiles %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :lymphocytes, 'LYMPHOCYTES (20 - 40):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :lymphocytes  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :monocytes, 'MONOCYTES (2 - 10):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :monocytes  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :eosinophiles, 'EOSINOPHILS (1 - 6):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :eosinophiles  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :basophiles, 'BASOPHILS (0 - 2):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :basophiles  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :glucose, 'GLUCOSE (FASTING) (74 - 99):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :glucose  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :hbaglycosylated, 'HbA1C GLYCOSYLATED (<5.7):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :hbaglycosylated  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :thyroid, 'THYROID (0.34 - 5.6):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :thyroid  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :urea, 'UREA (17.0 - 43.0):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :urea  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :creatinine, 'CREATININE (0.9 - 1.3):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :creatinine  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :billirubin, 'BILLIRUBIN (0.3 - 1.2):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :billirubin  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :sgot, 'SGOT (< 50):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :sgot %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :sgpt, 'SGPT (< 50):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :sgpt %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :cholesterol, 'CHOLESTEROL (<200):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :cholesterol%>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :triglycerides, 'TRIGLYCERIDES (<150):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :triglycerides %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :spg, 'SPG (1.015 - 1.025):', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :spg %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+
+

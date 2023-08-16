@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :leave_states
   resources :bn_nominal_rolls do
     resources :bn_lmc_pers
     resources :coy_leave_details
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
     resources :awards_and_achievements
     resources :cor_drinker_non_drinkers
     resources :leave_states
+    resources :max_health_reports
   end
 
   root 'main#index'
