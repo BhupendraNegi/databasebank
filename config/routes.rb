@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :bn_nominal_rolls
+  
+  resources :bn_nominal_rolls do
+    resources :bn_lmc_pers
+  end
   root 'main#index'
   devise_for :users
   resources :home, only: :index
