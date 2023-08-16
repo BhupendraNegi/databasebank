@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_army_courses_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_army_courses_on_bn_nominal_roll_id"
   end
 
   create_table "att_pers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_att_pers_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_att_pers_on_bn_nominal_roll_id"
   end
 
   create_table "awards_and_achievements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_awards_and_achievements_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_awards_and_achievements_on_bn_nominal_roll_id"
   end
 
   create_table "bn_family_member_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -57,10 +57,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.bigint "indl_details_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_bn_family_member_details_on_bn_nominal_rolls_id"
-    t.index ["indl_details_id"], name: "index_bn_family_member_details_on_indl_details_id"
+    t.bigint "bn_nominal_roll_id"
+    t.bigint "indl_detail_id"
+    t.index ["bn_nominal_roll_id"], name: "index_bn_family_member_details_on_bn_nominal_roll_id"
+    t.index ["indl_detail_id"], name: "index_bn_family_member_details_on_indl_detail_id"
   end
 
   create_table "bn_lmc_pers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -71,8 +71,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_bn_lmc_pers_on_bn_nominal_roll_id"
+  end
+
+  create_table "bn_lmc_persons", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "diagonosis"
+    t.string "date_of_first_placed_in_lmc"
+    t.string "date_of_next_med_review"
+    t.string "location"
+    t.text "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_bn_lmc_pers_on_bn_nominal_rolls_id"
+    t.index ["bn_nominal_rolls_id"], name: "index_bn_lmc_persons_on_bn_nominal_rolls_id"
   end
 
   create_table "bn_nominal_rolls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -98,8 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_bn_punishment_pers_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_bn_punishment_pers_on_bn_nominal_roll_id"
   end
 
   create_table "bn_sports_teams", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -108,8 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_bn_sports_teams_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_bn_sports_teams_on_bn_nominal_roll_id"
   end
 
   create_table "cor_drinker_non_drinkers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -117,8 +129,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_cor_drinker_non_drinkers_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_cor_drinker_non_drinkers_on_bn_nominal_roll_id"
   end
 
   create_table "coy_leave_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -127,8 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_coy_leave_details_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_coy_leave_details_on_bn_nominal_roll_id"
   end
 
   create_table "ere_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -140,8 +152,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_ere_details_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_ere_details_on_bn_nominal_roll_id"
   end
 
   create_table "indl_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -166,8 +178,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_indl_details_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_indl_details_on_bn_nominal_roll_id"
   end
 
   create_table "indl_veh_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -177,8 +189,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_indl_veh_details_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_indl_veh_details_on_bn_nominal_roll_id"
   end
 
   create_table "leave_states", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -188,8 +200,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_leave_states_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_leave_states_on_bn_nominal_roll_id"
   end
 
   create_table "max_health_reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -218,8 +230,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_max_health_reports_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_max_health_reports_on_bn_nominal_roll_id"
   end
 
   create_table "parade_state_of_units", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -238,8 +250,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_pers_in_mhs_on_bn_nominal_rolls_id"
+    t.bigint "bn_nominal_roll_id"
+    t.index ["bn_nominal_roll_id"], name: "index_pers_in_mhs_on_bn_nominal_roll_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -254,20 +266,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "army_courses", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "att_pers", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "awards_and_achievements", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "bn_family_member_details", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "bn_family_member_details", "indl_details", column: "indl_details_id"
-  add_foreign_key "bn_lmc_pers", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "bn_punishment_pers", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "bn_sports_teams", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "cor_drinker_non_drinkers", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "coy_leave_details", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "ere_details", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "indl_details", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "indl_veh_details", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "leave_states", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "max_health_reports", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
-  add_foreign_key "pers_in_mhs", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
+  add_foreign_key "army_courses", "bn_nominal_rolls"
+  add_foreign_key "att_pers", "bn_nominal_rolls"
+  add_foreign_key "awards_and_achievements", "bn_nominal_rolls"
+  add_foreign_key "bn_family_member_details", "bn_nominal_rolls"
+  add_foreign_key "bn_family_member_details", "indl_details"
+  add_foreign_key "bn_lmc_pers", "bn_nominal_rolls"
+  add_foreign_key "bn_lmc_persons", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
+  add_foreign_key "bn_punishment_pers", "bn_nominal_rolls"
+  add_foreign_key "bn_sports_teams", "bn_nominal_rolls"
+  add_foreign_key "cor_drinker_non_drinkers", "bn_nominal_rolls"
+  add_foreign_key "coy_leave_details", "bn_nominal_rolls"
+  add_foreign_key "ere_details", "bn_nominal_rolls"
+  add_foreign_key "indl_details", "bn_nominal_rolls"
+  add_foreign_key "indl_veh_details", "bn_nominal_rolls"
+  add_foreign_key "leave_states", "bn_nominal_rolls"
+  add_foreign_key "max_health_reports", "bn_nominal_rolls"
+  add_foreign_key "pers_in_mhs", "bn_nominal_rolls"
 end

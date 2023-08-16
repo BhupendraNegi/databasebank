@@ -9,6 +9,6 @@ class CreateBnLmcPers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :bn_lmc_pers, :bn_nominal_rolls, foreign_key: true
+    add_reference :bn_lmc_pers, :bn_nominal_roll, foreign_key: true
   end
 end

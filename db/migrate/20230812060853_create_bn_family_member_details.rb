@@ -16,7 +16,7 @@ class CreateBnFamilyMemberDetails < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :bn_family_member_details, :bn_nominal_rolls, foreign_key: true
-    add_reference :bn_family_member_details, :indl_details, foreign_key: true
+    add_reference :bn_family_member_details, :bn_nominal_roll, foreign_key: true
+    add_reference :bn_family_member_details, :indl_detail, foreign_key: true
   end
 end

@@ -9,6 +9,6 @@ class CreateAwardsAndAchievement < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :awards_and_achievements, :bn_nominal_rolls, foreign_key: true
+    add_reference :awards_and_achievements, :bn_nominal_roll, foreign_key: true
   end
 end

@@ -7,6 +7,6 @@ class CreateCorDrinkerNonDrinker < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :cor_drinker_non_drinkers, :bn_nominal_rolls, foreign_key: true
+    add_reference :cor_drinker_non_drinkers, :bn_nominal_roll, foreign_key: true
   end
 end

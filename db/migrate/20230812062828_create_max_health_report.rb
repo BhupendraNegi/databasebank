@@ -28,6 +28,6 @@ class CreateMaxHealthReport < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :max_health_reports, :bn_nominal_rolls, foreign_key: true
+    add_reference :max_health_reports, :bn_nominal_roll, foreign_key: true
   end
 end

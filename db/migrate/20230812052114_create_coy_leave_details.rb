@@ -7,6 +7,6 @@ class CreateCoyLeaveDetails < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_reference :coy_leave_details, :bn_nominal_rolls, foreign_key: true
+    add_reference :coy_leave_details, :bn_nominal_roll, foreign_key: true
   end
 end

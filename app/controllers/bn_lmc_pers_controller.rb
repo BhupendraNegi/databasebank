@@ -21,6 +21,7 @@ class BnLmcPersController < ApplicationController
 
   # POST /bn_lmc_pers or /bn_lmc_pers.json
   def create
+    params
     @bn_lmc_per = BnLmcPer.new(bn_lmc_per_params)
 
     respond_to do |format|
@@ -65,6 +66,8 @@ class BnLmcPersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bn_lmc_per_params
-      params.require(:bn_lmc_per).permit(:BnNominalRoll_id)
+      parameters = params.require(:bn_lmc_per).permit(:bn_nominal_rolls_id, :location, :diagonosis, :date_of_first_placed_in_lmc, :date_of_next_med_review, :remarks)
+      parameters["bn_nominal_roll_id"] = params["bn_nominal_roll_id"]
+      parameters
     end
 end

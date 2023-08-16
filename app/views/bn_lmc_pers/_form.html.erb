@@ -1,4 +1,4 @@
-<%= form_with(model: @bn_lmc_per, url: {action: "create"}) do |form| %>
+<%= form_with(model: @bn_lmc_per, url: {action: "create"}) do | f | %>
   <% if bn_lmc_per.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(bn_lmc_per.errors.count, "error") %> prohibited this bn_lmc_per from being saved:</h2>
@@ -10,13 +10,48 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :BnNominalRoll_id, style: "display: block" %>
-    <%= form.text_field :BnNominalRoll_id %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :diagonosis, 'DIAGNOSIS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :diagonosis, autofocus: true %>
+    </div>
   </div>
-
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :date_of_first_placed_in_lmc, 'DATE OF FIRST PLACED IN LMC:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :date_of_first_placed_in_lmc  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :date_of_next_med_review, 'DATE OF NEXT MED REVIEW:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :date_of_next_med_review  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :location, 'LOCATION:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :location %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
   <div>
-    <%= form.submit %>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
   </div>
 <% end %>
+

@@ -1,3 +1,3 @@
 class BnLmcPer < ApplicationRecord
-  belongs_to :BnNominalRoll
+  belongs_to :bn_nominal_roll
 end
