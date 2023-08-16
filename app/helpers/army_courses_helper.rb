@@ -1,0 +1,2 @@
+module ArmyCoursesHelper
+end

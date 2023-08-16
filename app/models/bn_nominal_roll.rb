@@ -5,5 +5,6 @@ class BnNominalRoll < ApplicationRecord
     has_many :ere_details, dependent: :delete_all
     has_many :pers_in_mhs, dependent: :delete_all
     has_many :bn_sports_teams, dependent: :delete_all
+    has_many :army_courses, dependent: :delete_all
 
 end
