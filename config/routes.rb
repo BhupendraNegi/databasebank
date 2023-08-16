@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :att_pers
     resources :indl_veh_details
     resources :indl_details
-
+    resources :awards_and_achievements
   end
 
   root 'main#index'

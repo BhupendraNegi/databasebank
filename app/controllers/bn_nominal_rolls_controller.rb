@@ -14,6 +14,7 @@ class BnNominalRollsController < ApplicationController
     @att_pers = @bn_nominal_roll.att_pers
     @indl_veh_details = @bn_nominal_roll.indl_veh_details
     @indl_details = @bn_nominal_roll.indl_detail
+    @awards_and_achievements = @bn_nominal_roll.awards_and_achievements
   end
 
   # GET /bn_nominal_rolls/new

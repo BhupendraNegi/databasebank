@@ -1,0 +1,50 @@
+<%= form_with method: action, model: @awards_and_achievement, url: url do | f | %>
+  <% if awards_and_achievement.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(awards_and_achievement.errors.count, "error") %> prohibited this awards_and_achievement from being saved:</h2>
+
+      <ul>
+        <% awards_and_achievement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :awards, 'AWARDS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :awards, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :awarding_date, 'AWARDING DATE:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :awarding_date  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :location, 'LOCATION:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :location  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+
