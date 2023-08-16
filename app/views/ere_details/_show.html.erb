@@ -1,0 +1,24 @@
+<div class="row my-2">
+  <div class="col-1">
+    <%= link_to "Edit Data", edit_bn_nominal_roll_ere_detail_path(@bn_nominal_roll, ere_details), class: "btn btn-sm btn-outline-primary"%>
+  </div>
+  <div class="col-2">
+    <%= button_to "Delete Data", bn_nominal_roll_ere_detail_path(@bn_nominal_roll, ere_details), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead class="bg-light">
+    <tr>
+      <% ere_details.attributes.except("updated_at", "created_at", "id", "bn_nominal_roll_id").keys.each do | bn |%>
+        <th> <%= bn.titleize %> </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% ere_details.attributes.except("updated_at", "created_at", "id", "bn_nominal_roll_id").values.each do | bn |%>
+        <td><%= bn %> </td>
+      <% end %>      
+    </tr>
+  </tbody>
+</table>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :bn_punishment_pers
+  
   
   resources :bn_nominal_rolls do
     resources :bn_lmc_pers
     resources :coy_leave_details
     resources :bn_punishment_pers
+    resources :ere_details
   end
 
   root 'main#index'

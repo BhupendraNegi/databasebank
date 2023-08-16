@@ -83,6 +83,23 @@
     <% end %>   
     <br>
     <hr> 
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          ERE DETAILS
+        </h5>
+      </div>
+      <div class="col-2">
+        <%= link_to "+ Add Data", new_bn_nominal_roll_ere_detail_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+    </div>
+    <% if @ere_details.present? %>
+      <% @ere_details.each do | ere_details | %>
+        <%= render partial: "ere_details/show", locals: { ere_details: ere_details }%>
+      <% end %>
+    <% end %>   
+    <br>
+    <hr> 
   </div>
 
 </div>
