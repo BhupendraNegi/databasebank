@@ -21,16 +21,13 @@ class BnLmcPersController < ApplicationController
 
   # POST /bn_lmc_pers or /bn_lmc_pers.json
   def create
-    params
     @bn_lmc_per = BnLmcPer.new(bn_lmc_per_params)
 
     respond_to do |format|
       if @bn_lmc_per.save
-        format.html { redirect_to bn_lmc_per_url(@bn_lmc_per), notice: "Bn lmc per was successfully created." }
-        format.json { render :show, status: :created, location: @bn_lmc_per }
+        format.html { redirect_to bn_nominal_roll_url(@bn_lmc_per.bn_nominal_roll), notice: "Bn lmc per was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bn_lmc_per.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,11 +36,9 @@ class BnLmcPersController < ApplicationController
   def update
     respond_to do |format|
       if @bn_lmc_per.update(bn_lmc_per_params)
-        format.html { redirect_to bn_lmc_per_url(@bn_lmc_per), notice: "Bn lmc per was successfully updated." }
-        format.json { render :show, status: :ok, location: @bn_lmc_per }
+        format.html { redirect_to bn_nominal_roll_url(@bn_lmc_per.bn_nominal_roll), notice: "Bn lmc per was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bn_lmc_per.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +48,7 @@ class BnLmcPersController < ApplicationController
     @bn_lmc_per.destroy
 
     respond_to do |format|
-      format.html { redirect_to bn_lmc_pers_url, notice: "Bn lmc per was successfully destroyed." }
+      format.html { redirect_to bn_nominal_roll_url(@bn_lmc_per.bn_nominal_roll), notice: "Bn lmc per was successfully destroyed." }
       format.json { head :no_content }
     end
   end

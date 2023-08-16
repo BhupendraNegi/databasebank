@@ -8,16 +8,12 @@
         </h4>
       </div>
       <div class="col-1">
-        <%= link_to "Edit", edit_bn_nominal_roll_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+        <%= link_to "Edit Data", edit_bn_nominal_roll_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
       </div>
-      <div class="col-1">
-        <%= button_to "Destroy", @bn_nominal_roll, method: :delete, class: "btn btn-sm btn-outline-primary" %>
+      <div class="col-2">
+        <%= button_to "Delete Data", @bn_nominal_roll, method: :delete, class: "btn btn-sm btn-outline-primary" %>
       </div>
     </div>
-
-        
-
-
     <table class="table table-bordered">
       <thead class="bg-light">
         <tr>
@@ -35,7 +31,20 @@
       </tbody>
 
     </table>
+    <div class="row">
+      <div class="col-3">
+        <h4>
+          BN LMC PERS
+        </h4>
+      </div>
+      <div class="col-2">
+        <%= link_to "+ Add Data", new_bn_nominal_roll_bn_lmc_per_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+    </div>
+    <% if @bn_lmc_pers.present? %>
+      <% @bn_lmc_pers.each do | bn_lmc_pers | %>
+        <%= render partial: "bn_lmc_pers/show", locals: { bn_lmc_pers: bn_lmc_pers }%>
+      <% end %>
+    <% end %>
   </div>
-
-
 </div>

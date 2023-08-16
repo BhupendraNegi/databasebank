@@ -1,8 +1,3 @@
 <h1>New bn lmc per</h1>
 
-<%= render "form", bn_lmc_per: @bn_lmc_per %>
-
-<br>
-
-<div>
-</div>
+<%= render partial: "form", locals: { action: "post", url: bn_nominal_roll_bn_lmc_pers_path, bn_lmc_per: @bn_lmc_per} %>

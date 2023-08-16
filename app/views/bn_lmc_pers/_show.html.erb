@@ -1,0 +1,24 @@
+<div class="row my-2">
+  <div class="col-1">
+    <%= link_to "Edit Data", edit_bn_nominal_roll_bn_lmc_per_path(@bn_nominal_roll, bn_lmc_pers), class: "btn btn-sm btn-outline-primary"%>
+  </div>
+  <div class="col-2">
+    <%= button_to "Delete Data", bn_nominal_roll_bn_lmc_per_path(@bn_nominal_roll, bn_lmc_pers), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead class="bg-light">
+    <tr>
+      <% bn_lmc_pers.attributes.except("updated_at", "created_at", "id", "bn_nominal_roll_id").keys.each do | bn |%>
+        <th> <%= bn.titleize %> </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% bn_lmc_pers.attributes.except("updated_at", "created_at", "id", "bn_nominal_roll_id").values.each do | bn |%>
+        <td><%= bn %> </td>
+      <% end %>      
+    </tr>
+  </tbody>
+</table>

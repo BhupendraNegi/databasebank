@@ -1,4 +1,4 @@
-<%= form_with(model: @bn_lmc_per, url: {action: "create"}) do | f | %>
+<%= form_with method: action, model: @bn_lmc_per, url: url do | f | %>
   <% if bn_lmc_per.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(bn_lmc_per.errors.count, "error") %> prohibited this bn_lmc_per from being saved:</h2>

@@ -1,9 +1,4 @@
 <h1>Editing bn lmc per</h1>
 
-<%= render "form", bn_lmc_per: @bn_lmc_per %>
+<%= render partial: "form", locals: { action: "patch", url: bn_nominal_roll_bn_lmc_per_path, bn_lmc_per: @bn_lmc_per } %>
 
-<br>
-
-<div>
-  <%= link_to "Show this bn lmc per", @bn_lmc_per %> |
-</div>

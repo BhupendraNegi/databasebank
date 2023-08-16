@@ -2,13 +2,9 @@ class BnNominalRollsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_bn_nominal_roll, only: %i[ show edit update destroy ]
 
-  # GET /bn_nominal_rolls or /bn_nominal_rolls.json
-  def index
-    @bn_nominal_rolls = BnNominalRoll.all
-  end
-
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def show
+    @bn_lmc_pers = @bn_nominal_roll.bn_lmc_pers
   end
 
   # GET /bn_nominal_rolls/new
@@ -27,10 +23,8 @@ class BnNominalRollsController < ApplicationController
     respond_to do |format|
       if @bn_nominal_roll.save
         format.html { redirect_to bn_nominal_roll_url(@bn_nominal_roll), notice: "Bn nominal roll was successfully created." }
-        format.json { render :show, status: :created, location: @bn_nominal_roll }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bn_nominal_roll.errors, status: :unprocessable_entity }
       end
     end
   end
