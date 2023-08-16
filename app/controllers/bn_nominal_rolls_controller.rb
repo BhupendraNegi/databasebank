@@ -6,6 +6,7 @@ class BnNominalRollsController < ApplicationController
   def show
     @bn_lmc_pers = @bn_nominal_roll.bn_lmc_pers
     @coy_leave_details = @bn_nominal_roll.coy_leave_detail
+    @bn_punishment_pers = @bn_nominal_roll.bn_punishment_pers
   end
 
   # GET /bn_nominal_rolls/new

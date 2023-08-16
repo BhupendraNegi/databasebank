@@ -1,0 +1,66 @@
+<%= form_with method: action, model: @bn_punishment_per, url: url do | f | %>
+  <% if bn_punishment_per.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bn_punishment_per.errors.count, "error") %> prohibited this bn_punishment_per from being saved:</h2>
+
+      <ul>
+        <% bn_punishment_per.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :red_black, 'RED BLACK:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :red_black, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :duration_on_period, 'DURATION ON PERIOD:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :duration_on_period  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :army_act, 'ARMY ACT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :army_act, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :punishment_award_ed, 'PUNISHMENT AWARD ED:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :punishment_award_ed, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :location, 'LOCATION:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :location, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+
