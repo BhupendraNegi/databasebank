@@ -1,0 +1,51 @@
+<%= form_with method: action, model: @pers_in_mh, url: url do | f | %>
+  <% if pers_in_mh.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pers_in_mh.errors.count, "error") %> prohibited this pers_in_mh from being saved:</h2>
+
+      <ul>
+        <% pers_in_mh.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :admitted_date, 'ADMITTED DATE:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :admitted_date, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :no_of_days_in_mh, 'NO OF DAYS IN MH:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :no_of_days_in_mh  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :diagonosis, 'DIAGONOSIS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :diagonosis, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+
+
