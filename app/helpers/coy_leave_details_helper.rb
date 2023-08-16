@@ -1,0 +1,2 @@
+module CoyLeaveDetailsHelper
+end

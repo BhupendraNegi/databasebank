@@ -1,0 +1,41 @@
+<%= form_with method: action, model: @coy_leave_detail, url: url do | f | %>
+  <% if coy_leave_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(coy_leave_detail.errors.count, "error") %> prohibited this coy_leave_detail from being saved:</h2>
+
+      <ul>
+        <% coy_leave_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :al, 'AL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :al, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :cl, 'CL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :cl  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+

@@ -1,14 +1,6 @@
 class BnLmcPersController < ApplicationController
-  before_action :set_bn_lmc_per, only: %i[ show edit update destroy ]
-
-  # GET /bn_lmc_pers or /bn_lmc_pers.json
-  def index
-    @bn_lmc_pers = BnLmcPer.all
-  end
-
-  # GET /bn_lmc_pers/1 or /bn_lmc_pers/1.json
-  def show
-  end
+  before_action :authenticate_user!
+  before_action :set_bn_lmc_per, only: %i[edit update destroy ]
 
   # GET /bn_lmc_pers/new
   def new
@@ -49,7 +41,6 @@ class BnLmcPersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to bn_nominal_roll_url(@bn_lmc_per.bn_nominal_roll), notice: "Bn lmc per was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   resources :bn_nominal_rolls do
     resources :bn_lmc_pers
+    resources :coy_leave_details
   end
+
   root 'main#index'
   devise_for :users
   resources :home, only: :index

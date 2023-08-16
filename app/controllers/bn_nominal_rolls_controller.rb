@@ -5,6 +5,7 @@ class BnNominalRollsController < ApplicationController
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def show
     @bn_lmc_pers = @bn_nominal_roll.bn_lmc_pers
+    @coy_leave_details = @bn_nominal_roll.coy_leave_detail
   end
 
   # GET /bn_nominal_rolls/new
@@ -34,10 +35,8 @@ class BnNominalRollsController < ApplicationController
     respond_to do |format|
       if @bn_nominal_roll.update(bn_nominal_roll_params)
         format.html { redirect_to bn_nominal_roll_url(@bn_nominal_roll), notice: "Bn nominal roll was successfully updated." }
-        format.json { render :show, status: :ok, location: @bn_nominal_roll }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bn_nominal_roll.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,8 +46,7 @@ class BnNominalRollsController < ApplicationController
     @bn_nominal_roll.destroy
 
     respond_to do |format|
-      format.html { redirect_to bn_nominal_rolls_url, notice: "Bn nominal roll was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to home_index_url, notice: "Bn nominal roll was successfully destroyed." }
     end
   end
 
