@@ -10,4 +10,5 @@ class BnNominalRoll < ApplicationRecord
     has_many :indl_veh_details, dependent: :delete_all
     has_one :indl_detail, dependent: :destroy
     has_many :awards_and_achievements, dependent: :delete_all
+    has_one :cor_drinker_non_drinker, dependent: :destroy
 end

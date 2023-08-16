@@ -1,0 +1,2 @@
+module CorDrinkerNonDrinkersHelper
+end

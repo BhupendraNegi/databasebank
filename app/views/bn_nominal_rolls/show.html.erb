@@ -219,5 +219,22 @@
     <% end %>   
     <br>
     <hr>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          COR DRINKER / NON DRINKER
+        </h5>
+      </div>
+      <% if @cor_drinker_non_drinkers.blank? %>
+        <div class="col-2">
+          <%= link_to "+ Add Data", new_bn_nominal_roll_cor_drinker_non_drinker_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+        </div>
+      <% end %>
+    </div>
+    <% if @cor_drinker_non_drinkers.present? %>
+      <%= render partial: "cor_drinker_non_drinkers/show", locals: { cor_drinker_non_drinkers: @cor_drinker_non_drinkers }%>
+    <% end %>
+    <br>
+    <hr> 
   </div>
 </div>

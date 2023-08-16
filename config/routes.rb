@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :indl_veh_details
     resources :indl_details
     resources :awards_and_achievements
+    resources :cor_drinker_non_drinkers
   end
 
   root 'main#index'
