@@ -1,0 +1,50 @@
+<%= form_with method: action, model: @leave_state, url: url do | f | %>
+  <% if leave_state.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(leave_state.errors.count, "error") %> prohibited this leave_state from being saved:</h2>
+
+      <ul>
+        <% leave_state.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :al, 'AL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :al, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :cl, 'CL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :cl  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :furlough, 'FURLOUGH:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :furlough  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+

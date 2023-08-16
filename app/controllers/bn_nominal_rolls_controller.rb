@@ -16,6 +16,7 @@ class BnNominalRollsController < ApplicationController
     @indl_details = @bn_nominal_roll.indl_detail
     @awards_and_achievements = @bn_nominal_roll.awards_and_achievements
     @cor_drinker_non_drinkers = @bn_nominal_roll.cor_drinker_non_drinker
+    @leave_states = @bn_nominal_roll.leave_state
   end
 
   # GET /bn_nominal_rolls/new
