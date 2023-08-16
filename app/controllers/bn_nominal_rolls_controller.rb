@@ -12,6 +12,7 @@ class BnNominalRollsController < ApplicationController
     @bn_sports_teams = @bn_nominal_roll.bn_sports_teams
     @army_courses = @bn_nominal_roll.army_courses
     @att_pers = @bn_nominal_roll.att_pers
+    @indl_veh_details = @bn_nominal_roll.indl_veh_details
   end
 
   # GET /bn_nominal_rolls/new

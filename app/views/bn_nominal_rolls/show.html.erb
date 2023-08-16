@@ -168,5 +168,22 @@
     <% end %>   
     <br>
     <hr>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          INDL VEH DETAILS
+        </h5>
+      </div>
+      <div class="col-2">
+        <%= link_to "+ Add Data", new_bn_nominal_roll_indl_veh_detail_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+    </div>
+    <% if @indl_veh_details.present? %>
+      <% @indl_veh_details.each do | indl_veh_details | %>
+        <%= render partial: "indl_veh_details/show", locals: { indl_veh_details: indl_veh_details }%>
+      <% end %>
+    <% end %>   
+    <br>
+    <hr>
   </div>
 </div>
