@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   end
 
   create_table "bn_family_member_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "dob"
     t.string "wife_name"
     t.string "dob_wife"
     t.string "no_of_children"
@@ -58,9 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "bn_nominal_roll_id"
-    t.bigint "indl_detail_id"
     t.index ["bn_nominal_roll_id"], name: "index_bn_family_member_details_on_bn_nominal_roll_id"
-    t.index ["indl_detail_id"], name: "index_bn_family_member_details_on_indl_detail_id"
   end
 
   create_table "bn_lmc_pers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -270,7 +269,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   add_foreign_key "att_pers", "bn_nominal_rolls"
   add_foreign_key "awards_and_achievements", "bn_nominal_rolls"
   add_foreign_key "bn_family_member_details", "bn_nominal_rolls"
-  add_foreign_key "bn_family_member_details", "indl_details"
   add_foreign_key "bn_lmc_pers", "bn_nominal_rolls"
   add_foreign_key "bn_lmc_persons", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
   add_foreign_key "bn_punishment_pers", "bn_nominal_rolls"

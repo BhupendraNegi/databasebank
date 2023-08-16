@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :cor_drinker_non_drinkers
     resources :leave_states
     resources :max_health_reports
+    resources :bn_family_member_details
   end
 
   root 'main#index'

@@ -13,4 +13,5 @@ class BnNominalRoll < ApplicationRecord
     has_one :cor_drinker_non_drinker, dependent: :destroy
     has_one :leave_state, dependent: :destroy
     has_one :max_health_report, dependent: :destroy
+    has_one :bn_family_member_detail, dependent: :destroy
 end

@@ -18,6 +18,7 @@ class BnNominalRollsController < ApplicationController
     @cor_drinker_non_drinkers = @bn_nominal_roll.cor_drinker_non_drinker
     @leave_states = @bn_nominal_roll.leave_state
     @max_health_reports = @bn_nominal_roll.max_health_report
+    @bn_family_member_details = @bn_nominal_roll.bn_family_member_detail
   end
 
   # GET /bn_nominal_rolls/new
