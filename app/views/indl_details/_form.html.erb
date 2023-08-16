@@ -1,0 +1,170 @@
+<%= form_with method: action, model: @indl_detail, url: url do | f | %>
+  <% if indl_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(indl_detail.errors.count, "error") %> prohibited this indl_detail from being saved:</h2>
+
+      <ul>
+        <% indl_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :pl, 'PL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :pl, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :sec, 'SEC:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :sec  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :i_card_number, 'I CARD NUMBER:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :i_card_number  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :blood_group, 'BLOOD GROUP:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :blood_group, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :appt, 'APPT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :appt  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :dob, 'DOB:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :dob  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :dt_of_enrollment, 'DT OF ENROLLMENT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :dt_of_enrollment, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :dt_of_tos_in_unit, 'DT OF TOS IN UNIT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :dt_of_tos_in_unit  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :dt_of_marriage, 'DT OF MARRIAGE:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :dt_of_marriage  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :dscp_record, 'DSCP RECORD:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :dscp_record  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :mob_no_indl, 'MOB NO INDL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :mob_no_indl  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :mob_no_res, 'MOB NO RES:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :mob_no_res  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :pan_no, 'PAN NO:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :pan_no  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :uid_no, 'UID NO:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :uid_no  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :lve_plan, 'LVE PLAN:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :lve_plan  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :location, 'LOCATION:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :location  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :email_id, 'EMAIL ID:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :email_id  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :address, 'ADDRESS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :address, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+

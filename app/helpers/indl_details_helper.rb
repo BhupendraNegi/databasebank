@@ -1,0 +1,2 @@
+module IndlDetailsHelper
+end

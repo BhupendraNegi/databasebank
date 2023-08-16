@@ -185,5 +185,22 @@
     <% end %>   
     <br>
     <hr>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          INDL DETAILS
+        </h5>
+      </div>
+      <% if @indl_details.blank? %>
+        <div class="col-2">
+          <%= link_to "+ Add Data", new_bn_nominal_roll_indl_detail_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+        </div>
+      <% end %>
+    </div>
+    <% if @indl_details.present? %>
+      <%= render partial: "indl_details/show", locals: { indl_details: @indl_details }%>
+    <% end %>
+    <br>
+    <hr> 
   </div>
 </div>

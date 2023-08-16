@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :army_courses
     resources :att_pers
     resources :indl_veh_details
+    resources :indl_details
+
   end
 
   root 'main#index'

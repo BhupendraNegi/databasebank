@@ -8,5 +8,6 @@ class BnNominalRoll < ApplicationRecord
     has_many :army_courses, dependent: :delete_all
     has_many :att_pers, dependent: :delete_all
     has_many :indl_veh_details, dependent: :delete_all
+    has_one :indl_detail, dependent: :destroy
     
 end

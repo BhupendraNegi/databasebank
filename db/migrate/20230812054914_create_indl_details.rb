@@ -20,8 +20,6 @@ class CreateIndlDetails < ActiveRecord::Migration[7.0]
       t.string :location, limit: nil
       t.string :email_id
       t.text :address, limit: nil
-
-
       t.text :remarks, limit: nil      
 
       t.timestamps
