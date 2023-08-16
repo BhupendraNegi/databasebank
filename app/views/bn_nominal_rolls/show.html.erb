@@ -116,7 +116,24 @@
       <% end %>
     <% end %>   
     <br>
-    <hr> 
+    <hr>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          BN SPORTS TEAM
+        </h5>
+      </div>
+      <div class="col-2">
+        <%= link_to "+ Add Data", new_bn_nominal_roll_bn_sports_team_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+    </div>
+    <% if @bn_sports_teams.present? %>
+      <% @bn_sports_teams.each do | bn_sports_teams | %>
+        <%= render partial: "bn_sports_teams/show", locals: { bn_sports_teams: bn_sports_teams }%>
+      <% end %>
+    <% end %>   
+    <br>
+    <hr>
   </div>
 
 </div>

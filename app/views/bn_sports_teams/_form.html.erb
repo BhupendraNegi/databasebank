@@ -1,0 +1,46 @@
+<%= form_with method: action, model: @bn_sports_team, url: url do | f | %>
+  <% if bn_sports_team.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bn_sports_team.errors.count, "error") %> prohibited this bn_sports_team from being saved:</h2>
+
+      <ul>
+        <% bn_sports_team.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :game_level, 'GAME LEVEL:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :game_level, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :game, 'GAME:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :game  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+
+
+
+
+
+
