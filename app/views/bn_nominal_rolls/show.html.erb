@@ -151,5 +151,22 @@
     <% end %>   
     <br>
     <hr>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h5>
+          ATT PERS
+        </h5>
+      </div>
+      <div class="col-2">
+        <%= link_to "+ Add Data", new_bn_nominal_roll_att_per_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
+      </div>
+    </div>
+    <% if @att_pers.present? %>
+      <% @att_pers.each do | att_pers | %>
+        <%= render partial: "att_pers/show", locals: { att_pers: att_pers }%>
+      <% end %>
+    <% end %>   
+    <br>
+    <hr>
   </div>
 </div>

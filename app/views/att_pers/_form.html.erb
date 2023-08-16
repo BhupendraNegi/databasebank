@@ -1,0 +1,49 @@
+<%= form_with method: action, model: @att_per, url: url do | f | %>
+  <% if att_per.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(att_per.errors.count, "error") %> prohibited this att_per from being saved:</h2>
+
+      <ul>
+        <% att_per.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :unit, 'UNIT:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :unit, autofocus: true %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :unit_location, 'UNIT LOCATION:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :unit_location  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :att_as_on, 'ATT AS ON:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :att_as_on  %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= f.label :remarks, 'REMARKS:', class: "text-secondary" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :remarks, cols: 50, rows: 5%>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Submit", class: "btn btn-sm btn-primary btn-block" %>
+  </div>
+<% end %>
+

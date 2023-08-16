@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   resources :bn_nominal_rolls do
     resources :bn_lmc_pers
     resources :coy_leave_details
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     resources :pers_in_mhs
     resources :bn_sports_teams
     resources :army_courses
+    resources :att_pers
   end
 
   root 'main#index'

@@ -1,4 +1,5 @@
 class EreDetailsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ere_detail, only: %i[ edit update destroy ]
 
   # GET /ere_details/new
