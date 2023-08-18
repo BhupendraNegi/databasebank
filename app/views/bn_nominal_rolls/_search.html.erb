@@ -1,25 +1,25 @@
 <div class="container">
 	<div class="row mb-3">
 		<div class="col-12">
-			<%= form_with(method: "get", url: bn_nominal_rolls_path, html: { class: "form-horizontal", role: "form" }, remote: true) do |f| %>
+			<%= form_with(method: "get", url: bn_nominal_rolls_path, remote: true) do |f| %>
 				<div class="row form-group">
 					<div class="col-2 px-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Army No", autofocus: true %>
+						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
 					</div>
 					<div class="col-1 px-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Rank" %>
+						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
 					</div>
 					<div class="col-2 px-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Trade" %>
+						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
 					</div>
 					<div class="col-2 px-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Name"%>
+						<%= f.text_field :trade, class: "form-control", placeholder: "Trade", value: params[:trade] %>
 					</div>
 					<div class="col-2 px-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Marital Status" %>
+						<%= f.text_field :marital_status, class: "form-control", placeholder: "Marital Status", value: params[:marital_status] %>
 					</div>
 					<div class="col-1 px-1">
-						<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy"  %>
+						<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
 					</div>
 					<div class="col-1 px-1 d-flex justify-content-end">
 						<%= f.submit "Search", class: "btn btn-secondary" %>

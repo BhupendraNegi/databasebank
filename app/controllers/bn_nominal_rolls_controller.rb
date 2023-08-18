@@ -4,6 +4,15 @@ class BnNominalRollsController < ApplicationController
 
   def index
     @bn_nominal_rolls = BnNominalRoll.all
+    if params[:commit].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(name: params[:name]) if params[:name].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(army_no: params[:army_no]) if params[:army_no].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(rank: params[:rank]) if params[:rank].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(trade: params[:trade]) if params[:trade].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(marital_status: params[:marital_status]) if params[:marital_status].present?
+      @bn_nominal_rolls = @bn_nominal_rolls.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+    end
+    # @bn_nominal_rolls.page(params[:page]).per(2)
   end
 
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json

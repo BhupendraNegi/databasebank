@@ -16,8 +16,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @bn_nominal_rolls.each do | bn |%>
+        <% @bn_nominal_rolls.each do | bn |%>
+          <tr>
+          
             <td>
               <%= bn.army_no %>
             </td>
@@ -45,8 +46,8 @@
             <td>
               <%= bn.remarks %>
             </td>
-          <% end %> 
-        </tr>
+          </tr>
+        <% end %> 
       </tbody>
     </table>
   </div>
