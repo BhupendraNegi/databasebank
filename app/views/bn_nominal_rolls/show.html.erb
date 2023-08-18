@@ -289,3 +289,14 @@
     <hr> 
   </div>
 </div>
+
+<script>
+  document.addEventListener("click", event => {
+    const element = event.target.closest("[data-confirm]")
+    console.log("hello")
+
+    if (element && !confirm(element.dataset.confirm)) {
+      event.preventDefault()
+    }
+  })
+</script>
