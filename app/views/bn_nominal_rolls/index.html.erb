@@ -7,12 +7,34 @@
     <%= render partial: "search", locals: { bn_nominal_rolls: @bn_nominal_rolls } %>
     <table class="table table-bordered">
       <thead class="bg-light">
-        <tr>
-          <% BnNominalRoll.new.attributes.except("updated_at", "created_at", "id").keys.each do | bn |%>
-            <th>
-              <%= bn.titleize.upcase %>
+        <tr width='100%'>
+            <th width='12%'>
+              <%= sort_link(@q, :army_no, 'ARMY NO', default_order: :desc) %>
             </th>
-          <% end %>
+            <th width='7%'>
+              <%= sort_link(@q, :rank, 'RANK', default_order: :desc) %>
+            </th>
+            <th width='17%'>
+              <%= sort_link(@q, :name, 'NAME', default_order: :desc) %>
+            </th>
+            <th width='6%'>
+              <%= sort_link(@q, :coy, 'COY', default_order: :desc) %>
+            </th>
+            <th width='9%'>
+              <%= sort_link(@q, :trade, 'TRADE', default_order: :desc) %>
+            </th>
+            <th width='14%'>
+              <%= sort_link(@q, :date_of_tos_in_unit, 'DT OF TOS IN UNIT', default_order: :desc) %>
+            </th>
+            <th width='8%'>
+              <%= sort_link(@q, :civ_edn, 'CIV EDN', default_order: :desc) %>
+            </th>
+            <th width='14%'>
+              <%= sort_link(@q, :marital_status, 'MARITAL STATUS', default_order: :desc) %>
+            </th>
+            <th width='14%'>
+              <%= sort_link(@q, :remarks, 'REMARKS', default_order: :desc) %>
+            </th>
         </tr>
       </thead>
       <tbody>
@@ -26,16 +48,17 @@
               <%= bn.rank %>
             </td>
             <td>
-              <%= bn.trade %>
-            </td>
-            <td>
               <%= bn.name %>
             </td>
             <td>
-              <%= bn.date_of_tos_in_unit %>
+              <%= bn.coy %>
             </td>
             <td>
-              <%= bn.coy %>
+              <%= bn.trade %>
+            </td>
+
+            <td>
+              <%= bn.date_of_tos_in_unit %>
             </td>
             <td>
               <%= bn.civ_edn %>

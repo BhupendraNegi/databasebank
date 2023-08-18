@@ -14,4 +14,8 @@ class BnNominalRoll < ApplicationRecord
     has_one :leave_state, dependent: :destroy
     has_one :max_health_report, dependent: :destroy
     has_one :bn_family_member_detail, dependent: :destroy
+
+    def self.ransackable_attributes(auth_object = nil)
+      ["army_no", "civ_edn", "coy", "created_at", "date_of_tos_in_unit", "id", "marital_status", "name", "rank", "remarks", "trade", "updated_at"]
+    end
 end

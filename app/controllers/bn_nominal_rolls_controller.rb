@@ -3,16 +3,17 @@ class BnNominalRollsController < ApplicationController
   before_action :set_bn_nominal_roll, only: %i[ show edit update destroy ]
 
   def index
-    @bn_nominal_rolls = BnNominalRoll.all
+    @q = BnNominalRoll
     if params[:commit].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(name: params[:name]) if params[:name].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(army_no: params[:army_no]) if params[:army_no].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(rank: params[:rank]) if params[:rank].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(trade: params[:trade]) if params[:trade].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(marital_status: params[:marital_status]) if params[:marital_status].present?
-      @bn_nominal_rolls = @bn_nominal_rolls.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @q = @q.where(name: params[:name]) if params[:name].present?
+      @q = @q.where(army_no: params[:army_no]) if params[:army_no].present?
+      @q = @q.where(rank: params[:rank]) if params[:rank].present?
+      @q = @q.where(trade: params[:trade]) if params[:trade].present?
+      @q = @q.where(marital_status: params[:marital_status]) if params[:marital_status].present?
+      @q = @q.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
     end
-    @bn_nominal_rolls = @bn_nominal_rolls.page(params[:page]).per(1).order('created_at DESC')
+    @q = @q.ransack(params[:q])
+    @bn_nominal_rolls = @q.result(distinct: true).page(params[:page]).per(50)
   end
 
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
