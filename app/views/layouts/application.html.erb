@@ -11,7 +11,7 @@
   </head>
   <body>
     <%= render partial: "layouts/navbar" %>
-    <div class="container-fluid"> 
+    <div class=""> 
       <% if notice.present? || alert.present? %>
         <div class="container d-flex justify-content-center mt-2">
           <div class="notice p-2 <%= notice.present? ? 'alert alert-warning alert-dismissible fade show' : '' %>" role="alert">

@@ -11,7 +11,7 @@
         <%= link_to "Edit Data", edit_bn_nominal_roll_path(@bn_nominal_roll), class: "btn btn-sm btn-outline-primary"%>
       </div>
       <div class="col-2">
-        <%= button_to "Delete Data", @bn_nominal_roll, method: :delete, class: "btn btn-sm btn-outline-primary" %>
+        <%= button_to "Delete Data", @bn_nominal_roll, method: :delete, class: "btn btn-sm btn-outline-primary", data: {confirm: "Are you sure?"} %>
       </div>
     </div>
     <table class="table table-bordered">

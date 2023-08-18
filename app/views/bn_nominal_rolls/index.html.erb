@@ -1,80 +1,81 @@
-<div class="container mt-2">
-  <h5> BN NOMINAL ROLL </h5>
+<div class="container">
+  <h5 class="mt-4"> BN NOMINAL ROLL </h5>
   <br>
+  <%= render partial: "search", locals: { bn_nominal_rolls: @bn_nominal_rolls } %>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='10%'>
+            <%= sort_link(@q, :army_no, 'ARMY NO', default_order: :desc) %>
+          </th>
+          <th width='7%'>
+            <%= sort_link(@q, :rank, 'RANK', default_order: :desc) %>
+          </th>
+          <th width='15%'>
+            <%= sort_link(@q, :name, 'NAME', default_order: :desc) %>
+          </th>
+          <th width='6%'>
+            <%= sort_link(@q, :coy, 'COY', default_order: :desc) %>
+          </th>
+          <th width='9%'>
+            <%= sort_link(@q, :trade, 'TRADE', default_order: :desc) %>
+          </th>
+          <th width='15%'>
+            <%= sort_link(@q, :date_of_tos_in_unit, 'DT OF TOS IN UNIT', default_order: :desc) %>
+          </th>
+          <th width='8%'>
+            <%= sort_link(@q, :civ_edn, 'CIV EDN', default_order: :desc) %>
+          </th>
+          <th width='14%'>
+            <%= sort_link(@q, :marital_status, 'MARITAL STATUS', default_order: :desc) %>
+          </th>
+          <th width='12%'>
+            <%= sort_link(@q, :remarks, 'REMARKS', default_order: :desc) %>
+          </th>
+          <th width="6%">
+          </th>
 
-  <div class="container-fluid mx-0 px-0">
-  
-    <%= render partial: "search", locals: { bn_nominal_rolls: @bn_nominal_rolls } %>
-    <table class="table table-bordered">
-      <thead class="bg-light">
-        <tr width='100%'>
-            <th width='12%'>
-              <%= sort_link(@q, :army_no, 'ARMY NO', default_order: :desc) %>
-            </th>
-            <th width='7%'>
-              <%= sort_link(@q, :rank, 'RANK', default_order: :desc) %>
-            </th>
-            <th width='17%'>
-              <%= sort_link(@q, :name, 'NAME', default_order: :desc) %>
-            </th>
-            <th width='6%'>
-              <%= sort_link(@q, :coy, 'COY', default_order: :desc) %>
-            </th>
-            <th width='9%'>
-              <%= sort_link(@q, :trade, 'TRADE', default_order: :desc) %>
-            </th>
-            <th width='14%'>
-              <%= sort_link(@q, :date_of_tos_in_unit, 'DT OF TOS IN UNIT', default_order: :desc) %>
-            </th>
-            <th width='8%'>
-              <%= sort_link(@q, :civ_edn, 'CIV EDN', default_order: :desc) %>
-            </th>
-            <th width='14%'>
-              <%= sort_link(@q, :marital_status, 'MARITAL STATUS', default_order: :desc) %>
-            </th>
-            <th width='14%'>
-              <%= sort_link(@q, :remarks, 'REMARKS', default_order: :desc) %>
-            </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bn_nominal_rolls.each do | bn |%>
+        <tr>
+          <td>
+            <%= bn.army_no %>
+          </td>
+          <td>
+            <%= bn.rank %>
+          </td>
+          <td>
+            <%= bn.name %>
+          </td>
+          <td>
+            <%= bn.coy %>
+          </td>
+          <td>
+            <%= bn.trade %>
+          </td>
+
+          <td>
+            <%= bn.date_of_tos_in_unit %>
+          </td>
+          <td>
+            <%= bn.civ_edn %>
+          </td>
+          <td>
+            <%= bn.marital_status %>
+          </td>
+          <td>
+            <%= bn.remarks %>
+          </td>
+          <td>
+            <%= link_to "Edit", bn_nominal_roll_path(bn)%>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <% @bn_nominal_rolls.each do | bn |%>
-          <tr>
-          
-            <td>
-              <%= bn.army_no %>
-            </td>
-            <td>
-              <%= bn.rank %>
-            </td>
-            <td>
-              <%= bn.name %>
-            </td>
-            <td>
-              <%= bn.coy %>
-            </td>
-            <td>
-              <%= bn.trade %>
-            </td>
-
-            <td>
-              <%= bn.date_of_tos_in_unit %>
-            </td>
-            <td>
-              <%= bn.civ_edn %>
-            </td>
-            <td>
-              <%= bn.marital_status %>
-            </td>
-            <td>
-              <%= bn.remarks %>
-            </td>
-          </tr>
-        <% end %> 
-      </tbody>
-    </table>
-    <%= paginate @bn_nominal_rolls %>
-  </div>
+      <% end %> 
+    </tbody>
+  </table>
+  <%= paginate @bn_nominal_rolls %>
 </div>
 
 
