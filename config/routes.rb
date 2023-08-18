@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :bn_nominal_rolls do
+    collection do
+      get :coy_nominal_roll
+    end
     resources :bn_lmc_pers
     resources :coy_leave_details
     resources :bn_punishment_pers

@@ -34,14 +34,10 @@
 							<div class="d-flex flex-row text-dark">
 								<div class="col-3">
 									<div class="row mx-3 mb-3">
-										<div class="btn btn-success text-start p-2">
-											BN NOMINAL ROLL
-										</div>
+										<%= link_to "BN NOMINAL ROLL", bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
 									</div>
 									<div class="row mx-3 mb-3 ">
-										<div class="btn btn-success text-start p-2">
-											COY NOMINAL ROLL
-										</div>
+										<%= link_to "COY NOMINAL ROLL", coy_nominal_roll_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
 									</div>
 									<div class="row mx-3 mb-3">
 										<div class="btn btn-success  text-start p-2">

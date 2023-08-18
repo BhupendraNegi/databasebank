@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="row mb-3">
 		<div class="col-12">
-			<%= form_with(method: "get", url: bn_nominal_rolls_path, remote: true) do |f| %>
-				<div class="row form-group mb-4">
-						<div class="col-1">
-								<%= f.label :coy, "COY:" %>
-						</div>
-						<div class="col-1">
-								<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
-						</div>
-				</div>
+			<%= form_with(method: "get", url: coy_nominal_roll_bn_nominal_rolls_path, remote: true) do |f| %>
+                <div class="row form-group mb-4">
+                    <div class="col-1">
+                        <%= f.label :coy, "COY:" %>
+                    </div>
+                    <div class="col-1">
+                        <%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
+                    </div>
+                </div>
 				<div class="row form-group">
 					<div class="col-2 px-1">
 						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
@@ -23,14 +23,11 @@
 					<div class="col-2 px-1">
 						<%= f.text_field :trade, class: "form-control", placeholder: "Trade", value: params[:trade] %>
 					</div>
-					<div class="col-2 px-1">
-						<%= f.text_field :marital_status, class: "form-control", placeholder: "Marital Status", value: params[:marital_status] %>
-					</div>
-					<div class="col-2 px-1 d-flex justify-content-end">
+					<div class="col-4 px-1 d-flex justify-content-end">
 						<%= f.submit "Search", class: "btn btn-secondary" %>
 					</div>
 					<div class="col-1 px-1 d-flex justify-content-end">
-						<%= link_to "Clear", bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+						<%= link_to "Clear", coy_nominal_roll_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
 					</div>
 				</div>
 			<% end %>
