@@ -12,7 +12,7 @@ class BnNominalRollsController < ApplicationController
       @bn_nominal_rolls = @bn_nominal_rolls.where(marital_status: params[:marital_status]) if params[:marital_status].present?
       @bn_nominal_rolls = @bn_nominal_rolls.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
     end
-    # @bn_nominal_rolls.page(params[:page]).per(2)
+    @bn_nominal_rolls = @bn_nominal_rolls.page(params[:page]).per(1).order('created_at DESC')
   end
 
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
