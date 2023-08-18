@@ -2,6 +2,10 @@ class BnNominalRollsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_bn_nominal_roll, only: %i[ show edit update destroy ]
 
+  def index
+    @bn_nominal_rolls = BnNominalRoll.all
+  end
+
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def show
     @bn_lmc_pers = @bn_nominal_roll.bn_lmc_pers

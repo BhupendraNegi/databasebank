@@ -1,0 +1,55 @@
+<div class="container mt-2">
+  <h5> BN NOMINAL ROLL </h5>
+  <br>
+
+  <div class="container-fluid mx-0 px-0">
+  
+    <%= render partial: "search", locals: { bn_nominal_rolls: @bn_nominal_rolls } %>
+    <table class="table table-bordered">
+      <thead class="bg-light">
+        <tr>
+          <% BnNominalRoll.new.attributes.except("updated_at", "created_at", "id").keys.each do | bn |%>
+            <th>
+              <%= bn.titleize.upcase %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @bn_nominal_rolls.each do | bn |%>
+            <td>
+              <%= bn.army_no %>
+            </td>
+            <td>
+              <%= bn.rank %>
+            </td>
+            <td>
+              <%= bn.trade %>
+            </td>
+            <td>
+              <%= bn.name %>
+            </td>
+            <td>
+              <%= bn.date_of_tos_in_unit %>
+            </td>
+            <td>
+              <%= bn.coy %>
+            </td>
+            <td>
+              <%= bn.civ_edn %>
+            </td>
+            <td>
+              <%= bn.marital_status %>
+            </td>
+            <td>
+              <%= bn.remarks %>
+            </td>
+          <% end %> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
