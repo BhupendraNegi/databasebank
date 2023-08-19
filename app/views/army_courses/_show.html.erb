@@ -10,7 +10,7 @@
   <thead class="bg-light">
     <tr>
       <% army_courses.attributes.except("updated_at", "created_at", "id", "bn_nominal_roll_id").keys.each do | bn |%>
-        <th> <%= bn.titleize %> </th>
+        <th class="align-top"> <%= bn.titleize %> </th>
       <% end %>
     </tr>
   </thead>

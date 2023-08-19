@@ -1,4 +1,7 @@
-<h1>New Indl Veh Details</h1>
+<div class="container my-4">
+    <br>
+    <h2 class="pt-2">New Indl Veh Details</h2>
+    <br>
+    <%= render partial: "form", locals: { action: "post", url: bn_nominal_roll_indl_veh_details_path, indl_veh_detail: @indl_veh_detail } %>
 
-<%= render partial: "form", locals: { action: "post", url: bn_nominal_roll_indl_veh_details_path, indl_veh_detail: @indl_veh_detail } %>
-
+</div>
