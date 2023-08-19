@@ -1,0 +1,121 @@
+<div class="container">
+  <h5 class="mt-4"> BN FAMILY MEMBER DETAILS </h5>
+  <br>
+	<%= render partial: "search_family" %>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead class="bg-light">
+				<tr>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_trade', 'TRADE') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :dob, 'DOB') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :wife_name, 'WIFE NAME') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :dob_wife, 'DOB WIFE') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :no_of_children, 'NO OF CHILDREN') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :present_address, 'PRESENT ADDRESS') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :qtr_occupation_date, 'QTR OCCUPATION DATE') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :permanent_address, 'PARMANENT ADDRESS') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :family_problem, 'FAMILY PROBLEM') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :mob_no_indl, 'MOB NO INDL') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :mob_no_res, 'MOB NO RES') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :remarks, 'REMARKS') %>
+						</th>
+						<th>
+						</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @bn_family_member_details.each do | ere |%>
+					<tr>
+						<td>
+							<%= ere.bn_nominal_roll.army_no %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.rank %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.name %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.coy %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.trade %>
+						</td>
+						<td>
+							<%= ere.dob %>
+						</td>
+						<td>
+							<%= ere.wife_name %>
+						</td>
+						<td>
+							<%= ere.dob_wife %>
+						</td>
+						<td>
+							<%= ere.no_of_children %>
+						</td>
+						<td>
+							<%= ere.present_address %>
+						</td>
+						<td>
+							<%= ere.qtr_occupation_date %>
+						</td>
+						<td>
+							<%= ere.permanent_address %>
+						</td>
+						<td>
+							<%= ere.family_problem %>
+						</td>
+						<td>
+							<%= ere.mob_no_indl %>
+						</td>
+						<td>
+							<%= ere.mob_no_res %>
+						</td>
+						<td>
+							<%= ere.remarks %>
+						</td>
+						<td>
+							<%= link_to "Edit", bn_nominal_roll_path(ere.bn_nominal_roll)%>
+						</td>
+					</tr>
+				<% end %> 
+			</tbody>
+		</table>
+	</div>
+  <%= paginate @bn_family_member_details %>
+</div>

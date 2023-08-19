@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-12">
+			<%= form_with(method: "get", url: bn_family_member_details_bn_nominal_rolls_path, remote: true) do |f| %>
+				<div class="row form-group mb-4">
+						<div class="col-1">
+								<%= f.label :coy, "COY:" %>
+						</div>
+						<div class="col-1">
+								<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
+						</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :trade, class: "form-control", placeholder: "Trade", value: params[:trade] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :dob, class: "form-control", placeholder: "DOB", value: params[:dob] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :wife_name, class: "form-control", placeholder: "WIFE NAME", value: params[:wife_name] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :dob_wife, class: "form-control", placeholder: "DOB WIFE", value: params[:dob_wife] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :no_of_children, class: "form-control", placeholder: "NO OF CHILDREN", value: params[:no_of_children] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :present_address, class: "form-control", placeholder: "PRESENT ADDRESS", value: params[:present_address] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :qtr_occupation_date, class: "form-control", placeholder: "QTR OCCUPATION DATE", value: params[:qtr_occupation_date] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :permanent_address, class: "form-control", placeholder: "PERMANENT ADDRESS", value: params[:permanent_address] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :family_problem, class: "form-control", placeholder: "FAMILY PROBLEM", value: params[:family_problem] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :mob_no_indl, class: "form-control", placeholder: "MOB NO INDL", value: params[:mob_no_indl] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :mob_no_res, class: "form-control", placeholder: "MOB NO RES", value: params[:mob_no_res] %>
+					</div>
+					<div class="col-6 px-1 d-flex justify-content-end my-1">
+						<%= f.submit "Search", class: "btn btn-secondary" %>
+					</div>
+					<div class="col-1 px-1 d-flex justify-content-end my-1">
+						<%= link_to "Reset", bn_family_member_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

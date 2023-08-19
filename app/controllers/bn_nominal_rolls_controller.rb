@@ -290,6 +290,32 @@ class BnNominalRollsController < ApplicationController
     @awards_and_achievements = @awards_and_achievements.page(params[:page]).per(75)
   end
 
+  def bn_family_member_details
+    @q = BnFamilyMemberDetail.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @bn_family_member_details =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @bn_family_member_details = @bn_family_member_details.where(dob: params[:dob]) if params[:dob].present?
+      @bn_family_member_details = @bn_family_member_details.where(wife_name: params[:wife_name]) if params[:wife_name].present?
+      @bn_family_member_details = @bn_family_member_details.where(dob_wife: params[:dob_wife]) if params[:dob_wife].present?
+      @bn_family_member_details = @bn_family_member_details.where(no_of_children: params[:no_of_children]) if params[:no_of_children].present?
+      @bn_family_member_details = @bn_family_member_details.where(present_address: params[:present_address]) if params[:present_address].present?
+      @bn_family_member_details = @bn_family_member_details.where(permanent_address: params[:permanent_address]) if params[:permanent_address].present?
+      @bn_family_member_details = @bn_family_member_details.where(qtr_occupation_date: params[:qtr_occupation_date]) if params[:qtr_occupation_date].present?
+      @bn_family_member_details = @bn_family_member_details.where(family_problem: params[:family_problem]) if params[:family_problem].present?
+      @bn_family_member_details = @bn_family_member_details.where(mob_no_indl: params[:mob_no_indl]) if params[:mob_no_indl].present?
+      @bn_family_member_details = @bn_family_member_details.where(mob_no_res: params[:mob_no_res]) if params[:mob_no_res].present?
+    end
+    @bn_family_member_details = @bn_family_member_details.page(params[:page]).per(75)
+  end
+  
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
