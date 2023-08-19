@@ -1,0 +1,193 @@
+<div class="container">
+  <h5 class="mt-4"> BN FAMILY MEMBER DETAILS </h5>
+  <br>
+	<%= render partial: "search_health" %>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead class="bg-light">
+				<tr>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, 'bn_nominal_roll_trade', 'TRADE') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :barcode, 'BARCODE') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :ht, 'HT') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :wt, 'WT') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :bp, 'BP') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :haemoglobin, 'HAEMOGLOBIN (13.0 - 17.0)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :leucocyte, 'LEUCOCYTE (4.0 - 10.0)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :neutrophiles, 'NEUTROPHILS (40 - 80)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :lymphocytes, 'LYMPHOCYTES (20 - 40)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :monocytes, 'MONOCYTES (2 - 10)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :eosinophiles, 'EOSINOPHILS (1 - 6)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :basophiles, 'BASOPHILS (0 - 2)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :glucose, 'GLUCOSE (FASTING) (74 - 99)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :hbaglycosylated, 'HbA1C GLYCOSYLATED (<5.7)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :thyroid, 'THYROID (0.34 - 5.6)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :urea, 'UREA (17.0 - 43.0)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :creatinine, 'CREATININE (0.9 - 1.3)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :billirubin, 'BILLIRUBIN (0.3 - 1.2)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :sgot, 'SGOT (< 50)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :sgpt, 'SGPT (< 50)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :cholesterol, 'CHOLESTEROL (<200)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :triglycerides, 'TRIGLYCERIDES (<150)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :spg, 'SPG (1.015 - 1.025)') %>
+						</th>
+						<th class="align-top">
+							<%= sort_link(@q, :remarks, 'REMARKS') %>
+						</th>
+						<th>
+						</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @max_health_reports.each do | ere |%>
+					<tr>
+						<td>
+							<%= ere.bn_nominal_roll.army_no %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.rank %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.name %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.coy %>
+						</td>
+						<td>
+							<%= ere.bn_nominal_roll.trade %>
+						</td>
+						<td>
+							<%= ere.barcode %>
+						</td>
+						<td>
+							<%= ere.ht %>
+						</td>
+						<td>
+							<%= ere.wt %>
+						</td>
+						<td>
+							<%= ere.bp %>
+						</td>
+						<td>
+							<%= ere.haemoglobin %>
+						</td>
+						<td>
+							<%= ere.leucocyte %>
+						</td>
+						<td>
+							<%= ere.neutrophiles %>
+						</td>
+						<td>
+							<%= ere.lymphocytes %>
+						</td>
+						<td>
+							<%= ere.monocytes %>
+						</td>
+						<td>
+							<%= ere.eosinophiles %>
+						</td>
+						<td>
+							<%= ere.basophiles %>
+						</td>
+						<td>
+							<%= ere.glucose %>
+						</td>
+						<td>
+							<%= ere.hbaglycosylated %>
+						</td>
+						<td>
+							<%= ere.thyroid %>
+						</td>
+						<td>
+							<%= ere.urea %>
+						</td>
+						<td>
+							<%= ere.creatinine %>
+						</td>
+						<td>
+							<%= ere.billirubin %>
+						</td>
+						<td>
+							<%= ere.sgot %>
+						</td>
+						<td>
+							<%= ere.sgpt %>
+						</td>
+						<td>
+							<%= ere.cholesterol %>
+						</td>
+						<td>
+							<%= ere.triglycerides %>
+						</td>
+						<td>
+							<%= ere.spg %>
+						</td>
+						<td>
+							<%= ere.remarks %>
+						</td>
+						<td>
+							<%= link_to "Edit", bn_nominal_roll_path(ere.bn_nominal_roll)%>
+						</td>
+					</tr>
+				<% end %> 
+			</tbody>
+		</table>
+	</div>
+  <%= paginate @max_health_reports %>
+</div>

@@ -1,0 +1,102 @@
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-12">
+			<%= form_with(method: "get", url: max_health_reports_bn_nominal_rolls_path, remote: true) do |f| %>
+				<div class="row form-group mb-4">
+						<div class="col-1">
+								<%= f.label :coy, "COY:" %>
+						</div>
+						<div class="col-1">
+								<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
+						</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :trade, class: "form-control", placeholder: "Trade", value: params[:trade] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :barcode, class: "form-control", placeholder: "BARCODE", value: params[:barcode] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :ht, class: "form-control", placeholder: "HT", value: params[:ht] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :wt, class: "form-control", placeholder: "WT", value: params[:wt] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :bp, class: "form-control", placeholder: "BP", value: params[:bp] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :haemoglobin, class: "form-control", placeholder: "HAEMOGLOBIN", value: params[:haemoglobin] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :leucocyte, class: "form-control", placeholder: "LEUCOCYTE", value: params[:leucocyte] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :neutrophiles, class: "form-control", placeholder: "NEUTROPHILS", value: params[:neutrophiles] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :lymphocytes, class: "form-control", placeholder: "LYMPHOCYTES", value: params[:lymphocytes] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :monocytes, class: "form-control", placeholder: "MONOCYTES", value: params[:monocytes] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :eosinophiles, class: "form-control", placeholder: "EOSINOPHILS", value: params[:eosinophiles] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :basophiles, class: "form-control", placeholder: "BASOPHILS", value: params[:basophiles] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :glucose, class: "form-control", placeholder: "GLUCOSE", value: params[:glucose] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :hbaglycosylated, class: "form-control", placeholder: "HbA1C GLYCOSYLATED", value: params[:hbaglycosylated] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :thyroid, class: "form-control", placeholder: "THYROID", value: params[:thyroid] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :urea, class: "form-control", placeholder: "UREA", value: params[:urea] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :creatinine, class: "form-control", placeholder: "CREATININE", value: params[:creatinine] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :billirubin, class: "form-control", placeholder: "BILLIRUBIN", value: params[:billirubin] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :sgot, class: "form-control", placeholder: "SGOT", value: params[:sgot] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :sgpt, class: "form-control", placeholder: "SGPT", value: params[:sgpt] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :cholesterol, class: "form-control", placeholder: "CHOLESTEROL", value: params[:cholesterol] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :triglycerides, class: "form-control", placeholder: "TRIGLYCERIDES", value: params[:triglycerides] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :spg, class: "form-control", placeholder: "SPG", value: params[:spg] %>
+					</div>
+					<div class="col-5 px-1 d-flex justify-content-end my-1">
+						<%= f.submit "Search", class: "btn btn-secondary" %>
+					</div>
+					<div class="col-1 px-1 d-flex justify-content-end my-1">
+						<%= link_to "Reset", max_health_reports_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

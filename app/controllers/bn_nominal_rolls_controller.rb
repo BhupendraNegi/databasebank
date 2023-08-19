@@ -348,6 +348,44 @@ class BnNominalRollsController < ApplicationController
     end
     @leave_states = @leave_states.page(params[:page]).per(75)
   end
+
+  
+  def max_health_reports
+    @q = MaxHealthReport.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @max_health_reports =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @max_health_reports = @max_health_reports.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @max_health_reports = @max_health_reports.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @max_health_reports = @max_health_reports.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @max_health_reports = @max_health_reports.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
+      @max_health_reports = @max_health_reports.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @max_health_reports = @max_health_reports.where(barcode: params[:barcode]) if params[:barcode].present?
+      @max_health_reports = @max_health_reports.where(ht: params[:ht]) if params[:ht].present?
+      @max_health_reports = @max_health_reports.where(wt: params[:wt]) if params[:wt].present?
+      @max_health_reports = @max_health_reports.where(bp: params[:bp]) if params[:bp].present?
+      @max_health_reports = @max_health_reports.where(haemoglobin: params[:haemoglobin]) if params[:haemoglobin].present?
+      @max_health_reports = @max_health_reports.where(leucocyte: params[:leucocyte]) if params[:leucocyte].present?
+      @max_health_reports = @max_health_reports.where(neutrophiles: params[:neutrophiles]) if params[:neutrophiles].present?
+      @max_health_reports = @max_health_reports.where(lymphocytes: params[:lymphocytes]) if params[:lymphocytes].present?
+      @max_health_reports = @max_health_reports.where(monocytes: params[:monocytes]) if params[:monocytes].present?
+      @max_health_reports = @max_health_reports.where(eosinophiles: params[:eosinophiles]) if params[:eosinophiles].present?
+      @max_health_reports = @max_health_reports.where(basophiles: params[:basophiles]) if params[:basophiles].present?
+      @max_health_reports = @max_health_reports.where(glucose: params[:glucose]) if params[:glucose].present?
+      @max_health_reports = @max_health_reports.where(hbaglycosylated: params[:hbaglycosylated]) if params[:hbaglycosylated].present?
+      @max_health_reports = @max_health_reports.where(thyroid: params[:thyroid]) if params[:thyroid].present?
+      @max_health_reports = @max_health_reports.where(urea: params[:urea]) if params[:urea].present?
+      @max_health_reports = @max_health_reports.where(creatinine: params[:creatinine]) if params[:creatinine].present?
+      @max_health_reports = @max_health_reports.where(billirubin: params[:billirubin]) if params[:billirubin].present?
+      @max_health_reports = @max_health_reports.where(sgot: params[:sgot]) if params[:sgot].present?
+      @max_health_reports = @max_health_reports.where(sgpt: params[:sgpt]) if params[:sgpt].present?
+      @max_health_reports = @max_health_reports.where(cholesterol: params[:cholesterol]) if params[:cholesterol].present?
+      @max_health_reports = @max_health_reports.where(triglycerides: params[:triglycerides]) if params[:triglycerides].present?
+      @max_health_reports = @max_health_reports.where(spg: params[:spg]) if params[:spg].present?
+    end
+    @max_health_reports = @max_health_reports.page(params[:page]).per(75)
+  end
   
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
