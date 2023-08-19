@@ -13,7 +13,7 @@ class BnNominalRollsController < ApplicationController
       @q = @q.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
     end
     @q = @q.ransack(params[:q])
-    @bn_nominal_rolls = @q.result(distinct: true).page(params[:page]).per()
+    @bn_nominal_rolls = @q.result(distinct: true).page(params[:page]).per(75)
   end
 
   # GET /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
@@ -79,20 +79,21 @@ class BnNominalRollsController < ApplicationController
       @q = @q.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
     end
     @q = @q.ransack(params[:q])
-    @bn_nominal_rolls = @q.result(distinct: true).page(params[:page]).per(100)
+    @bn_nominal_rolls = @q.result(distinct: true).page(params[:page]).per(75)
   end
 
   def coy_leave_detail
     @q = CoyLeaveDetail.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @coy_leave_detail =  @q.result(distinct: true).includes(:bn_nominal_roll)
 
     if params[:commit].present?
-      @q = @q.where(bn_nominal_roll: { name: params[:name] }) if params[:name].present?
-      @q = @q.where(bn_nominal_roll: { army_no: params[:army_no] }) if params[:army_no].present?
-      @q = @q.where(bn_nominal_roll: { rank: params[:rank] }) if params[:rank].present?
-      @q = @q.where(bn_nominal_roll: { coy: params[:coy] }) if params[:coy].present? && !(params[:coy] == "ALL")
-    end
-    @q = @q.ransack(params[:q])
-    @coy_leave_detail = @q.result(distinct: true).includes(:bn_nominal_roll).page(params[:page]).per(100)
+      @coy_leave_detail = @coy_leave_detail.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @coy_leave_detail = @coy_leave_detail.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @coy_leave_detail = @coy_leave_detail.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @coy_leave_detail = @coy_leave_detail.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+    end    
+    @coy_leave_detail = @coy_leave_detail.page(params[:page]).per(75)
   end
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
