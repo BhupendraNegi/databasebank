@@ -1,0 +1,68 @@
+<div class="container">
+  <h5 class="mt-4"> COY LEAVE DETAILS </h5>
+  <br>
+	<%= render partial: "search_coy_leave" %>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='15%'>
+            <%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO', default_order: :desc) %>
+          </th>
+          <th width='10%'>
+            <%= sort_link(@q, 'bn_nominal_roll.rank', 'RANK', default_order: :desc) %>
+          </th>
+          <th width='30%'>
+            <%= sort_link(@q, 'bn_nominal_roll.name', 'NAME', default_order: :desc) %>
+          </th>
+          <th width='15%'>
+            <%= sort_link(@q, 'bn_nominal_roll.coy', 'COY', default_order: :desc) %>
+          </th>
+          <th width='10%'>
+            <%= sort_link(@q, :al, 'AL', default_order: :desc) %>
+          </th>
+          <th width='10%'>
+            <%= sort_link(@q, :cl, 'CL', default_order: :desc) %>
+          </th>
+          <th width='10%'>
+            <%= sort_link(@q, :remarks, 'REMARKS', default_order: :desc) %>
+          </th>
+          <th width="10%">
+          </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @coy_leave_detail.each do | cvd |%>
+        <tr>
+          <td>
+            <%= cvd.bn_nominal_roll.army_no %>
+          </td>
+          <td>
+            <%= cvd.bn_nominal_roll.rank %>
+          </td>
+          <td>
+            <%= cvd.bn_nominal_roll.name %>
+          </td>
+          <td>
+            <%= cvd.bn_nominal_roll.coy %>
+          </td>
+          <td>
+            <%= cvd.al %>
+          </td>
+					<td>
+						<%= cvd.cl %>
+					</td>
+					<td>
+						<%= cvd.remarks %>
+					</td>
+          <td>
+            <%= link_to "Edit", bn_nominal_roll_path(cvd.bn_nominal_roll)%>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+  <%= paginate @coy_leave_detail %>
+</div>
+
+
