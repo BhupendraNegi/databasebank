@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-12">
+			<%= form_with(method: "get", url: pers_in_mhs_bn_nominal_rolls_path, remote: true) do |f| %>
+				<div class="row form-group mb-4">
+						<div class="col-1">
+								<%= f.label :coy, "COY:" %>
+						</div>
+						<div class="col-1">
+								<%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
+						</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :admitted_date, class: "form-control", placeholder: "ADMITTED DATE", value: params[:admitted_date] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :no_of_days_in_mh, class: "form-control", placeholder: "DURATION ON PERIOD", value: params[:no_of_days_in_mh] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :diagonosis, class: "form-control", placeholder: "DIAGONOSIS", value: params[:diagonosis] %>
+					</div>
+					<div class="col-10 px-1 d-flex justify-content-end my-1">
+						<%= f.submit "Search", class: "btn btn-secondary" %>
+					</div>
+					<div class="col-1 px-1 d-flex justify-content-end my-1">
+						<%= link_to "Reset", pers_in_mhs_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

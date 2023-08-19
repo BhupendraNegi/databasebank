@@ -154,6 +154,23 @@ class BnNominalRollsController < ApplicationController
     @bn_punishment_pers = @bn_punishment_pers.page(params[:page]).per(75)
   end
 
+  def pers_in_mhs
+    @q = PersInMh.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @pers_in_mhs =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @pers_in_mhs = @pers_in_mhs.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @pers_in_mhs = @pers_in_mhs.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @pers_in_mhs = @pers_in_mhs.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @pers_in_mhs = @pers_in_mhs.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @pers_in_mhs = @pers_in_mhs.where(admitted_date: params[:admitted_date]) if params[:admitted_date].present?
+      @pers_in_mhs = @pers_in_mhs.where(no_of_days_in_mh: params[:no_of_days_in_mh]) if params[:no_of_days_in_mh].present?
+      @pers_in_mhs = @pers_in_mhs.where(diagonosis: params[:diagonosis]) if params[:diagonosis].present?
+    end
+    @pers_in_mhs = @pers_in_mhs.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
