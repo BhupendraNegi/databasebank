@@ -135,6 +135,25 @@ class BnNominalRollsController < ApplicationController
     @ere_details = @ere_details.page(params[:page]).per(75)
   end
 
+  def bn_punishment_pers
+    @q = BnPunishmentPer.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @bn_punishment_pers =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @bn_punishment_pers = @bn_punishment_pers.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @bn_punishment_pers = @bn_punishment_pers.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @bn_punishment_pers = @bn_punishment_pers.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @bn_punishment_pers = @bn_punishment_pers.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @bn_punishment_pers = @bn_punishment_pers.where(red_black: params[:red_black]) if params[:red_black].present?
+      @bn_punishment_pers = @bn_punishment_pers.where(duration_on_period: params[:duration_on_period]) if params[:duration_on_period].present?
+      @bn_punishment_pers = @bn_punishment_pers.where(army_act: params[:army_act]) if params[:army_act].present?
+      @bn_punishment_pers = @bn_punishment_pers.where(punishment_award_ed: params[:punishment_award_ed]) if params[:punishment_award_ed].present?
+      @bn_punishment_pers = @bn_punishment_pers.where(location: params[:location]) if params[:location].present?
+    end
+    @bn_punishment_pers = @bn_punishment_pers.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy

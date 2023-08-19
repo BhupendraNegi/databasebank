@@ -5,6 +5,18 @@ Rails.application.routes.draw do
       get :coy_leave_detail
       get :bn_lmc_pers
       get :ere_details
+      get :bn_punishment_pers
+      get :pers_in_mhs
+      get :bn_sports_teams
+      get :army_courses
+      get :att_pers
+      get :indl_veh_details
+      get :indl_details
+      get :awards_and_achievements
+      get :cor_drinker_non_drinkers
+      get :leave_states
+      get :max_health_reports
+      get :bn_family_member_details
     end
     resources :bn_lmc_pers
     resources :coy_leave_details
