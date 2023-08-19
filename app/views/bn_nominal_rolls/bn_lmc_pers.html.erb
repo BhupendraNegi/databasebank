@@ -1,0 +1,86 @@
+<div class="container">
+  <h5 class="mt-4"> BN LMC PERS </h5>
+  <br>
+	<%= render partial: "search_bn_lmc" %>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+          </th>
+          <th width='5%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+          </th>
+          <th width='15%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+          </th>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+          </th>
+					<th width='8%' class="align-top">
+						<%= sort_link(@q, 'bn_nominal_roll_pers_med_cat', 'PERS MED CAT') %>
+					</th>
+          <th width='15%' class="align-top">
+            <%= sort_link(@q, :diagonosis, 'DIAGONOSIS') %>
+          </th>
+          <th width='10%' class="align-top">
+						<%= sort_link(@q, :date_of_first_placed_in_lmc, 'DATE OF FIRST PLACE IN LMC') %>
+					</th>
+					<th width='8%' class="align-top">
+						<%= sort_link(@q, :date_of_next_med_review, 'DATE OF NEXT MED REVIEW') %>
+					</th>
+					<th width='10%' class="align-top">
+						<%= sort_link(@q, :location, 'LOCATION') %>
+					</th>
+          <th width='10%' class="align-top">
+            <%= sort_link(@q, :remarks, 'REMARKS') %>
+          </th>
+          <th width="5%">
+          </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @bn_lmc_pers.each do | lmc |%>
+        <tr>
+          <td>
+            <%= lmc.bn_nominal_roll.army_no %>
+          </td>
+          <td>
+            <%= lmc.bn_nominal_roll.rank %>
+          </td>
+          <td>
+            <%= lmc.bn_nominal_roll.name %>
+          </td>
+          <td>
+            <%= lmc.bn_nominal_roll.coy %>
+          </td>
+					<td>
+						<%= lmc.bn_nominal_roll.pers_med_cat %>
+					</td>
+          <td>
+            <%= lmc.diagonosis %>
+          </td>
+					<td>
+						<%= lmc.date_of_first_placed_in_lmc %>
+					</td>
+					<td>
+						<%= lmc.date_of_next_med_review %>
+					</td>
+					<td>
+						<%= lmc.location %>
+					</td>
+					<td>
+						<%= lmc.remarks %>
+					</td>
+          <td>
+            <%= link_to "Edit", bn_nominal_roll_path(lmc.bn_nominal_roll)%>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+  <%= paginate @bn_lmc_pers %>
+</div>
+
+

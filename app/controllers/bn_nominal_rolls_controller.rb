@@ -96,6 +96,26 @@ class BnNominalRollsController < ApplicationController
     @coy_leave_detail = @coy_leave_detail.page(params[:page]).per(75)
   end
 
+  def bn_lmc_pers
+    @q = BnLmcPer.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @bn_lmc_pers =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @bn_lmc_pers = @bn_lmc_pers.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @bn_lmc_pers = @bn_lmc_pers.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @bn_lmc_pers = @bn_lmc_pers.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @bn_lmc_pers = @bn_lmc_pers.where("bn_nominal_rolls.pers_med_cat = ?", params[:pers_med_cat]) if params[:pers_med_cat].present?
+      @bn_lmc_pers = @bn_lmc_pers.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @bn_lmc_pers = @bn_lmc_pers.where(diagonosis: params[:diagonosis]) if params[:diagonosis].present?
+      @bn_lmc_pers = @bn_lmc_pers.where(date_of_first_placed_in_lmc: params[:date_of_first_placed_in_lmc]) if params[:date_of_first_placed_in_lmc].present?
+      @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:date_of_next_med_review]) if params[:date_of_next_med_review].present?
+      @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:date_of_next_med_review]) if params[:date_of_next_med_review].present?
+      @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:location]) if params[:location].present?
+    end
+    @bn_lmc_pers = @bn_lmc_pers.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
@@ -113,6 +133,6 @@ class BnNominalRollsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bn_nominal_roll_params
-      params.fetch(:bn_nominal_roll, {}).permit(:army_no, :rank, :trade, :name, :date_of_tos_in_unit, :coy, :civ_edn, :marital_status ,:remarks)
+      params.fetch(:bn_nominal_roll, {}).permit(:army_no, :rank, :trade, :name, :date_of_tos_in_unit, :coy, :civ_edn, :marital_status ,:remarks, :pers_med_cat)
     end
 end

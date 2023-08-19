@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-12">
+			<%= form_with(method: "get", url: bn_lmc_pers_bn_nominal_rolls_path, remote: true) do |f| %>
+                <div class="row form-group mb-4">
+                    <div class="col-1">
+                        <%= f.label :coy, "COY:" %>
+                    </div>
+                    <div class="col-1">
+                        <%= f.select :coy, ["ALL", "A COY", "B COY", "C COY", "D COY", "SP COY", "HQ COY", "OTHERS"], class: "form-control pt-2", placeholder: "Coy", value: params[:coy], selected: params[:coy]  %>
+                    </div>
+                </div>
+				<div class="row form-group">
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :pers_med_cat, class: "form-control", placeholder: "PERS MED CAT", value: params[:pers_med_cat] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :diagonosis, class: "form-control", placeholder: "DIAGNOSIS", value: params[:diagonosis] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :location, class: "form-control", placeholder: "LOCATION", value: params[:location] %>
+					</div>
+					<div class="col-3 px-1 my-1">
+						<%= f.text_field :date_of_first_placed_in_lmc, class: "form-control", placeholder: "DATE OF FIRST PLACE IN LMC", value: params[:date_of_first_placed_in_lmc] %>
+					</div>
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :date_of_next_med_review, class: "form-control", placeholder: "DATE OF NEXT MED REVIEW", value: params[:date_of_next_med_review] %>
+					</div>
+					<div class="col-5 px-1 d-flex justify-content-end my-1">
+						<%= f.submit "Search", class: "btn btn-secondary" %>
+					</div>
+					<div class="col-1 px-1 d-flex justify-content-end my-1">
+						<%= link_to "Reset", bn_lmc_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_17_060855) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_19_113043) do
   create_table "army_courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "course"
     t.string "course_grading"
@@ -98,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_060855) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pers_med_cat"
     t.index ["army_no"], name: "index_bn_nominal_rolls_on_army_no"
     t.index ["coy"], name: "index_bn_nominal_rolls_on_coy"
   end
