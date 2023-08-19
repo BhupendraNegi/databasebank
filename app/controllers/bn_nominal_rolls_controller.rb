@@ -314,6 +314,22 @@ class BnNominalRollsController < ApplicationController
     end
     @bn_family_member_details = @bn_family_member_details.page(params[:page]).per(75)
   end
+
+  def cor_drinker_non_drinkers
+    @q = CorDrinkerNonDrinker.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @cor_drinker_non_drinkers =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.where(drinker_non_drinker: params[:drinker_non_drinker]) if params[:drinker_non_drinker].present?
+    end
+    @cor_drinker_non_drinkers = @cor_drinker_non_drinkers.page(params[:page]).per(75)
+  end
   
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
