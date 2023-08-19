@@ -221,6 +221,23 @@ class BnNominalRollsController < ApplicationController
     @att_pers = @att_pers.page(params[:page]).per(75)
   end
 
+  def indl_veh_details
+    @q = IndlVehDetail.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @indl_veh_details =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @indl_veh_details = @indl_veh_details.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @indl_veh_details = @indl_veh_details.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @indl_veh_details = @indl_veh_details.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @indl_veh_details = @indl_veh_details.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @indl_veh_details = @indl_veh_details.where(type_of_veh: params[:type_of_veh]) if params[:type_of_veh].present?
+      @indl_veh_details = @indl_veh_details.where(veh_no: params[:veh_no]) if params[:veh_no].present?
+      @indl_veh_details = @indl_veh_details.where(location: params[:location]) if params[:location].present?
+    end
+    @indl_veh_details = @indl_veh_details.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
