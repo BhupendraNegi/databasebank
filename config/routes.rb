@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parade_state_of_units
   resources :bn_nominal_rolls do
     collection do
       get :coy_nominal_roll

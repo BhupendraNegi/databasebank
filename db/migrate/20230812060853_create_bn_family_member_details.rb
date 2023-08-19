@@ -2,7 +2,6 @@ class CreateBnFamilyMemberDetails < ActiveRecord::Migration[7.0]
   def change
     create_table :bn_family_member_details do |t|
 
-      t.string :dob, limit: nil
       t.string :wife_name, limit: nil
       t.string :dob_wife, limit: nil
       t.string :no_of_children, limit: nil

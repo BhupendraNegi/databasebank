@@ -1,0 +1,47 @@
+<div class="container">
+  <h5 class="mt-4"> PARADE STATE OF UNITS </h5>
+  <br>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='15%' class="align-top"> 
+          </th>
+          <th width='10%' class="align-top">
+            AUTH
+          </th>
+          <th width='30%' class="align-top">
+            POSTED
+          </th>
+          <th width='15%' class="align-top">
+            PRESENT
+          </th>
+          <th width="10%">
+          </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @parade_state_of_units.each do | ps |%>
+        <tr>
+          <td>
+            <b> <%= ps.designation %> </b>
+          </td>
+					<td>
+						<%= ps.auth %>
+					</td>
+					<td>
+						<%= ps.posted %>
+					</td>
+          <td>
+            <%= ps.present %>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_parade_state_of_unit_path(ps)%>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
+
+

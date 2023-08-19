@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+bin/rake db:setup
+bin/rake db:migrate
+bin/rake db:seed

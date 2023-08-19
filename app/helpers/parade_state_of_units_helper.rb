@@ -1,0 +1,2 @@
+module ParadeStateOfUnitsHelper
+end

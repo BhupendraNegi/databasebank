@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_062828) do
   create_table "army_courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "course"
     t.string "course_grading"
@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
   end
 
   create_table "bn_family_member_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "dob"
     t.string "wife_name"
     t.string "dob_wife"
     t.string "no_of_children"
@@ -74,31 +73,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
     t.index ["bn_nominal_roll_id"], name: "index_bn_lmc_pers_on_bn_nominal_roll_id"
   end
 
-  create_table "bn_lmc_persons", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "diagonosis"
-    t.string "date_of_first_placed_in_lmc"
-    t.string "date_of_next_med_review"
-    t.string "location"
-    t.text "remarks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "bn_nominal_rolls_id"
-    t.index ["bn_nominal_rolls_id"], name: "index_bn_lmc_persons_on_bn_nominal_rolls_id"
-  end
-
   create_table "bn_nominal_rolls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "army_no"
     t.string "rank"
     t.string "trade"
     t.string "name"
     t.string "date_of_tos_in_unit"
+    t.string "pers_med_cat"
     t.string "coy"
     t.string "civ_edn"
     t.string "marital_status"
+    t.string "dob"
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "pers_med_cat"
     t.index ["army_no"], name: "index_bn_nominal_rolls_on_army_no"
     t.index ["coy"], name: "index_bn_nominal_rolls_on_coy"
   end
@@ -164,7 +152,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
     t.string "i_card_number"
     t.string "blood_group"
     t.string "appt"
-    t.string "dob"
     t.string "dt_of_enrollment"
     t.string "dt_of_marriage"
     t.string "dscp_record"
@@ -272,7 +259,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
   add_foreign_key "awards_and_achievements", "bn_nominal_rolls"
   add_foreign_key "bn_family_member_details", "bn_nominal_rolls"
   add_foreign_key "bn_lmc_pers", "bn_nominal_rolls"
-  add_foreign_key "bn_lmc_persons", "bn_nominal_rolls", column: "bn_nominal_rolls_id"
   add_foreign_key "bn_punishment_pers", "bn_nominal_rolls"
   add_foreign_key "bn_sports_teams", "bn_nominal_rolls"
   add_foreign_key "cor_drinker_non_drinkers", "bn_nominal_rolls"

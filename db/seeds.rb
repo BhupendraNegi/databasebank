@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+ParadeStateOfUnit.create!([
+{
+  designation: "OFFRS",
+  auth: "",
+  posted: "",
+  present: ""
+},
+{
+  designation: "JCO",
+  auth: "",
+  posted: "",
+  present: ""
+},
+{
+  designation: "OR",
+  auth: "",
+  posted: "",
+  present: ""
+}])
