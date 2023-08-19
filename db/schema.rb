@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_19_113043) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_19_152303) do
   create_table "army_courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "course"
     t.string "course_grading"
@@ -166,7 +166,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_113043) do
     t.string "appt"
     t.string "dob"
     t.string "dt_of_enrollment"
-    t.string "dt_of_tos_in_unit"
     t.string "dt_of_marriage"
     t.string "dscp_record"
     t.string "mob_no_indl"
