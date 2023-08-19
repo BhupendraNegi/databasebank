@@ -1,0 +1,71 @@
+<div class="container">
+  <h5 class="mt-4"> BN SPORTS TEAM </h5>
+  <br>
+	<%= render partial: "search_army" %>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+          </th>
+          <th width='5%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+          </th>
+          <th width='15%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+          </th>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+          </th>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, :course, 'COURSE') %>
+          </th>
+					<th width='8%' class="align-top">
+						<%= sort_link(@q, :course_grading, 'COURSE GRADING') %>
+					</th>
+					<th width='9%' class="align-top">
+						<%= sort_link(@q, :location, 'LOCATION') %>
+					</th>
+          <th width='10%' class="align-top">
+            <%= sort_link(@q, :remarks, 'REMARKS') %>
+          </th>
+          <th width="5%">
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @army_courses.each do | ere |%>
+        <tr>
+          <td>
+            <%= ere.bn_nominal_roll.army_no %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.rank %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.name %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.coy %>
+          </td>
+          <td>
+            <%= ere.course %>
+          </td>
+					<td>
+						<%= ere.course_grading %>
+					</td>
+					<td>
+						<%= ere.location %>
+					</td>
+					<td>
+						<%= ere.remarks %>
+					</td>
+          <td>
+            <%= link_to "Edit", bn_nominal_roll_path(ere.bn_nominal_roll)%>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+  <%= paginate @army_courses %>
+</div>

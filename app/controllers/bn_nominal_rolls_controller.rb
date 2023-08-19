@@ -186,6 +186,23 @@ class BnNominalRollsController < ApplicationController
     end
     @bn_sports_teams = @bn_sports_teams.page(params[:page]).per(75)
   end
+  
+  def army_courses
+    @q = ArmyCourse.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @army_courses =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @army_courses = @army_courses.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @army_courses = @army_courses.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @army_courses = @army_courses.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @army_courses = @army_courses.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @army_courses = @army_courses.where(course: params[:course]) if params[:course].present?
+      @army_courses = @army_courses.where(course_grading: params[:course_grading]) if params[:course_grading].present?
+      @army_courses = @army_courses.where(location: params[:location]) if params[:location].present?
+    end
+    @army_courses = @army_courses.page(params[:page]).per(75)
+  end
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy

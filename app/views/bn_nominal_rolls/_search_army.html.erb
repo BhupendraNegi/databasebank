@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row mb-3">
 		<div class="col-12">
-			<%= form_with(method: "get", url: bn_sports_teams_bn_nominal_rolls_path, remote: true) do |f| %>
+			<%= form_with(method: "get", url: army_courses_bn_nominal_rolls_path, remote: true) do |f| %>
 				<div class="row form-group mb-4">
 						<div class="col-1">
 								<%= f.label :coy, "COY:" %>
@@ -21,16 +21,19 @@
 						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
 					</div>
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :game, class: "form-control", placeholder: "GAME", value: params[:game] %>
+						<%= f.text_field :course, class: "form-control", placeholder: "COURSE", value: params[:course] %>
 					</div>
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :game_level, class: "form-control", placeholder: "GAME LEVEL", value: params[:game_level] %>
+						<%= f.text_field :course_grading, class: "form-control", placeholder: "COURSE GRADING", value: params[:course_grading] %>
 					</div>
-					<div class="col-2 px-1 d-flex justify-content-end my-1">
+					<div class="col-2 px-1 my-1">
+						<%= f.text_field :location, class: "form-control", placeholder: "LOCATION", value: params[:location] %>
+					</div>
+					<div class="col-10 px-1 d-flex justify-content-end my-1">
 						<%= f.submit "Search", class: "btn btn-secondary" %>
 					</div>
 					<div class="col-1 px-1 d-flex justify-content-end my-1">
-						<%= link_to "Reset", bn_sports_teams_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
+						<%= link_to "Reset", army_courses_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-secondary pt-1" %>
 					</div>
 				</div>
 			<% end %>
