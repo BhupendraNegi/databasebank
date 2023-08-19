@@ -272,6 +272,24 @@ class BnNominalRollsController < ApplicationController
     @indl_details = @indl_details.page(params[:page]).per(75)
   end
 
+  def awards_and_achievements
+    @q = AwardsAndAchievement.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @awards_and_achievements =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @awards_and_achievements = @awards_and_achievements.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @awards_and_achievements = @awards_and_achievements.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @awards_and_achievements = @awards_and_achievements.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @awards_and_achievements = @awards_and_achievements.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
+      @awards_and_achievements = @awards_and_achievements.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @awards_and_achievements = @awards_and_achievements.where(awards: params[:awards]) if params[:awards].present?
+      @awards_and_achievements = @awards_and_achievements.where(awarding_date: params[:awarding_date]) if params[:awarding_date].present?
+      @awards_and_achievements = @awards_and_achievements.where(location: params[:location]) if params[:location].present?
+    end
+    @awards_and_achievements = @awards_and_achievements.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
