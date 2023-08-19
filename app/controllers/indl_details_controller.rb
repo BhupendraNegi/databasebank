@@ -52,7 +52,7 @@ class IndlDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def indl_detail_params
-      parameters = params.require(:indl_detail).permit(:bn_nominal_rolls_id, :pl, :sec, :i_card_number, :blood_group, :appt, :dob, :dt_of_enrollment, :dt_of_marriage, :dscp_record, :mob_no_indl, :mob_no_res, :pan_no, :uid_no, :lve_plan, :location, :email_id, :address, :remarks)
+      parameters = params.require(:indl_detail).permit(:bn_nominal_rolls_id, :pl, :sec, :i_card_number, :blood_group, :appt, :dt_of_enrollment, :dt_of_marriage, :dscp_record, :mob_no_indl, :mob_no_res, :pan_no, :uid_no, :lve_plan, :location, :email_id, :address, :remarks)
       parameters["bn_nominal_roll_id"] = params["bn_nominal_roll_id"]
       parameters
     end

@@ -300,8 +300,8 @@ class BnNominalRollsController < ApplicationController
       @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
       @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
       @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
+      @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.dob = ?", params[:dob]) if params[:dob].present?
       @bn_family_member_details = @bn_family_member_details.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
-      @bn_family_member_details = @bn_family_member_details.where(dob: params[:dob]) if params[:dob].present?
       @bn_family_member_details = @bn_family_member_details.where(wife_name: params[:wife_name]) if params[:wife_name].present?
       @bn_family_member_details = @bn_family_member_details.where(dob_wife: params[:dob_wife]) if params[:dob_wife].present?
       @bn_family_member_details = @bn_family_member_details.where(no_of_children: params[:no_of_children]) if params[:no_of_children].present?
@@ -405,6 +405,6 @@ class BnNominalRollsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bn_nominal_roll_params
-      params.fetch(:bn_nominal_roll, {}).permit(:army_no, :rank, :trade, :name, :date_of_tos_in_unit, :coy, :civ_edn, :marital_status ,:remarks, :pers_med_cat)
+      params.fetch(:bn_nominal_roll, {}).permit(:army_no, :rank, :trade, :name, :date_of_tos_in_unit, :coy, :civ_edn, :marital_status ,:remarks, :pers_med_cat, :dob)
     end
 end

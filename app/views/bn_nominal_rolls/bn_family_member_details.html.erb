@@ -22,7 +22,7 @@
 							<%= sort_link(@q, 'bn_nominal_roll_trade', 'TRADE') %>
 						</th>
 						<th class="align-top">
-							<%= sort_link(@q, :dob, 'DOB') %>
+							<%= sort_link(@q, 'bn_nominal_roll_dob', 'DOB') %>
 						</th>
 						<th class="align-top">
 							<%= sort_link(@q, :wife_name, 'WIFE NAME') %>
@@ -77,7 +77,7 @@
 							<%= ere.bn_nominal_roll.trade %>
 						</td>
 						<td>
-							<%= ere.dob %>
+							<%= ere.bn_nominal_roll.dob %>
 						</td>
 						<td>
 							<%= ere.wife_name %>

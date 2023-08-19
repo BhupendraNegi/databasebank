@@ -52,7 +52,7 @@ class BnFamilyMemberDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bn_family_member_detail_params
-      parameters = params.require(:bn_family_member_detail).permit(:bn_nominal_rolls_id, :dob, :wife_name, :dob_wife, :no_of_children, :present_address, :permanent_address, :qtr_occupation_date, :family_problem, :mob_no_indl, :mob_no_res, :remarks)
+      parameters = params.require(:bn_family_member_detail).permit(:bn_nominal_rolls_id, :wife_name, :dob_wife, :no_of_children, :present_address, :permanent_address, :qtr_occupation_date, :family_problem, :mob_no_indl, :mob_no_res, :remarks)
       parameters["bn_nominal_roll_id"] = params["bn_nominal_roll_id"]
       parameters
     end
