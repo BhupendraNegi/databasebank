@@ -203,6 +203,23 @@ class BnNominalRollsController < ApplicationController
     end
     @army_courses = @army_courses.page(params[:page]).per(75)
   end
+  
+  def att_pers
+    @q = AttPer.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @att_pers =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @att_pers = @att_pers.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @att_pers = @att_pers.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @att_pers = @att_pers.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @att_pers = @att_pers.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @att_pers = @att_pers.where(unit: params[:unit]) if params[:unit].present?
+      @att_pers = @att_pers.where(unit_location: params[:unit_location]) if params[:unit_location].present?
+      @att_pers = @att_pers.where(att_as_on: params[:att_as_on]) if params[:att_as_on].present?
+    end
+    @att_pers = @att_pers.page(params[:page]).per(75)
+  end
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
