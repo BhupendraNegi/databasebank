@@ -171,6 +171,22 @@ class BnNominalRollsController < ApplicationController
     @pers_in_mhs = @pers_in_mhs.page(params[:page]).per(75)
   end
 
+  def bn_sports_teams
+    @q = BnSportsTeam.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @bn_sports_teams =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @bn_sports_teams = @bn_sports_teams.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @bn_sports_teams = @bn_sports_teams.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @bn_sports_teams = @bn_sports_teams.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @bn_sports_teams = @bn_sports_teams.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @bn_sports_teams = @bn_sports_teams.where(game_level: params[:game_level]) if params[:game_level].present?
+      @bn_sports_teams = @bn_sports_teams.where(game: params[:game]) if params[:game].present?
+    end
+    @bn_sports_teams = @bn_sports_teams.page(params[:page]).per(75)
+  end
+
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
   def destroy
     @bn_nominal_roll.destroy
