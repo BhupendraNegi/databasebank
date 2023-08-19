@@ -1,0 +1,84 @@
+<div class="container">
+  <h5 class="mt-4"> ERE DETAILS </h5>
+  <br>
+	<%= render partial: "search_ere" %>
+  <table class="table table-bordered">
+    <thead class="bg-light">
+      <tr width='100%'>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+          </th>
+          <th width='5%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+          </th>
+          <th width='15%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+          </th>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+          </th>
+          <th width='8%' class="align-top">
+            <%= sort_link(@q, :ere_unit, 'ERE UNIT') %>
+          </th>
+					<th width='9%' class="align-top">
+						<%= sort_link(@q, :ere_location, 'ERE LOCATION') %>
+					</th>
+          <th width='10%' class="align-top">
+						<%= sort_link(@q, :date_of_sos_to_ere, 'DATE OF SOS TO ERE') %>
+					</th>
+					<th width='10%' class="align-top">
+						<%= sort_link(@q, :date_of_rtu_to_unit, 'DATE OF RTU TO UNIT') %>
+					</th>
+					<th width='10%' class="align-top">
+						<%= sort_link(@q, :tenure, 'TENURE') %>
+					</th>
+          <th width='10%' class="align-top">
+            <%= sort_link(@q, :remarks, 'REMARKS') %>
+          </th>
+          <th width="5%">
+          </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @ere_details.each do | ere |%>
+        <tr>
+          <td>
+            <%= ere.bn_nominal_roll.army_no %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.rank %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.name %>
+          </td>
+          <td>
+            <%= ere.bn_nominal_roll.coy %>
+          </td>
+          <td>
+            <%= ere.ere_unit %>
+          </td>
+					<td>
+						<%= ere.ere_location %>
+					</td>
+					<td>
+						<%= ere.date_of_sos_to_ere %>
+					</td>
+					<td>
+						<%= ere.date_of_rtu_to_unit %>
+					</td>
+					<td>
+						<%= ere.tenure %>
+					</td>
+					<td>
+						<%= ere.remarks %>
+					</td>
+          <td>
+            <%= link_to "Edit", bn_nominal_roll_path(ere.bn_nominal_roll)%>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+  <%= paginate @ere_details %>
+</div>

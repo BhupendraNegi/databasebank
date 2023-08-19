@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get :coy_nominal_roll
       get :coy_leave_detail
       get :bn_lmc_pers
+      get :ere_details
     end
     resources :bn_lmc_pers
     resources :coy_leave_details

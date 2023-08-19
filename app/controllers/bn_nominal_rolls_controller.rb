@@ -110,10 +110,29 @@ class BnNominalRollsController < ApplicationController
       @bn_lmc_pers = @bn_lmc_pers.where(diagonosis: params[:diagonosis]) if params[:diagonosis].present?
       @bn_lmc_pers = @bn_lmc_pers.where(date_of_first_placed_in_lmc: params[:date_of_first_placed_in_lmc]) if params[:date_of_first_placed_in_lmc].present?
       @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:date_of_next_med_review]) if params[:date_of_next_med_review].present?
-      @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:date_of_next_med_review]) if params[:date_of_next_med_review].present?
-      @bn_lmc_pers = @bn_lmc_pers.where(date_of_next_med_review: params[:location]) if params[:location].present?
+      @bn_lmc_pers = @bn_lmc_pers.where(location: params[:location]) if params[:location].present?
     end
     @bn_lmc_pers = @bn_lmc_pers.page(params[:page]).per(75)
+  end
+
+  
+  def ere_details
+    @q = EreDetail.joins(:bn_nominal_roll)
+    @q = @q.ransack(params[:q])
+    @ere_details =  @q.result(distinct: true).includes(:bn_nominal_roll)
+
+    if params[:commit].present?
+      @ere_details = @ere_details.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
+      @ere_details = @ere_details.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
+      @ere_details = @ere_details.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
+      @ere_details = @ere_details.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @ere_details = @ere_details.where(ere_unit: params[:ere_unit]) if params[:ere_unit].present?
+      @ere_details = @ere_details.where(ere_location: params[:ere_location]) if params[:ere_location].present?
+      @ere_details = @ere_details.where(date_of_sos_to_ere: params[:date_of_sos_to_ere]) if params[:date_of_sos_to_ere].present?
+      @ere_details = @ere_details.where(date_of_rtu_to_unit: params[:date_of_rtu_to_unit]) if params[:date_of_rtu_to_unit].present?
+      @ere_details = @ere_details.where(tenure: params[:tenure]) if params[:tenure].present?
+    end
+    @ere_details = @ere_details.page(params[:page]).per(75)
   end
 
   # DELETE /bn_nominal_rolls/1 or /bn_nominal_rolls/1.json
