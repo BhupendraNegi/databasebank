@@ -239,9 +239,9 @@ class BnNominalRollsController < ApplicationController
   end
 
   def indl_details
-    @q = IndlDetail.joins(:bn_nominal_roll)
+    @q = BnNominalRoll.joins(:indl_detail)
     @q = @q.ransack(params[:q])
-    @indl_details =  @q.result(distinct: true).includes(:bn_nominal_roll)
+    @indl_details =  @q.result(distinct: true).includes(:indl_detail)
 
     if params[:commit].present?
       @indl_details = @indl_details.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
