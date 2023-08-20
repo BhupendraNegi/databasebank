@@ -239,35 +239,37 @@ class BnNominalRollsController < ApplicationController
   end
 
   def indl_details
-    @q = BnNominalRoll.joins(:indl_detail)
+    @q = BnNominalRoll.joins(:indl_detail, :army_courses, :ere_details, :bn_family_member_detail, :awards_and_achievements)
     @q = @q.ransack(params[:q])
-    @indl_details =  @q.result(distinct: true).includes(:indl_detail)
+    @indl_details =  @q.result(distinct: true).includes(:indl_detail, :army_courses, :ere_details, :bn_family_member_detail, :awards_and_achievements)
 
     if params[:commit].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.name = ?", params[:name]) if params[:name].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.army_no = ?", params[:army_no]) if params[:army_no].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.rank = ?", params[:rank]) if params[:rank].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.trade = ?", params[:trade]) if params[:trade].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.dt_of_tos_in_unit = ?", params[:dt_of_tos_in_unit]) if params[:dt_of_tos_in_unit].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.pers_med_cat = ?", params[:pers_med_cat]) if params[:pers_med_cat].present?
-      @indl_details = @indl_details.where("bn_nominal_rolls.coy = ?", params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
-      @indl_details = @indl_details.where(pl: params[:pl]) if params[:pl].present?
-      @indl_details = @indl_details.where(sec: params[:sec]) if params[:sec].present?
-      @indl_details = @indl_details.where(i_card_number: params[:i_card_number]) if params[:i_card_number].present?
-      @indl_details = @indl_details.where(blood_group: params[:blood_group]) if params[:blood_group].present?
-      @indl_details = @indl_details.where(appt: params[:appt]) if params[:appt].present?
+      @indl_details = @indl_details.where(name: params[:name]) if params[:name].present?
+      @indl_details = @indl_details.where(army_no: params[:army_no]) if params[:army_no].present?
+      @indl_details = @indl_details.where(rank: params[:rank]) if params[:rank].present?
+      @indl_details = @indl_details.where(trade: params[:trade]) if params[:trade].present?
+      @indl_details = @indl_details.where(date_of_tos_in_unit: params[:date_of_tos_in_unit]) if params[:dt_of_tos_in_unit].present?
+      @indl_details = @indl_details.where(pers_med_cat: params[:pers_med_cat]) if params[:pers_med_cat].present?
       @indl_details = @indl_details.where(dob: params[:dob]) if params[:dob].present?
-      @indl_details = @indl_details.where(dt_of_enrollment: params[:dt_of_enrollment]) if params[:dt_of_enrollment].present?
-      @indl_details = @indl_details.where(dt_of_marriage: params[:dt_of_marriage]) if params[:dt_of_marriage].present?
-      @indl_details = @indl_details.where(dscp_record: params[:dscp_record]) if params[:dscp_record].present?
-      @indl_details = @indl_details.where(mob_no_indl: params[:mob_no_indl]) if params[:mob_no_indl].present?
-      @indl_details = @indl_details.where(mob_no_res: params[:mob_no_res]) if params[:mob_no_res].present?
-      @indl_details = @indl_details.where(pan_no: params[:pan_no]) if params[:pan_no].present?
-      @indl_details = @indl_details.where(uid_no: params[:uid_no]) if params[:uid_no].present?
-      @indl_details = @indl_details.where(lve_plan: params[:lve_plan]) if params[:lve_plan].present?
-      @indl_details = @indl_details.where(location: params[:location]) if params[:location].present?
-      @indl_details = @indl_details.where(email_id: params[:email_id]) if params[:email_id].present?
-      @indl_details = @indl_details.where(address: params[:address]) if params[:address].present?
+      @indl_details = @indl_details.where(civ_edn: params[:civ_edn]) if params[:civ_edn].present?
+      @indl_details = @indl_details.where(marital_status: params[:marital_status]) if params[:marital_status].present?
+      @indl_details = @indl_details.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+      @indl_details = @indl_details.where("indl_details.pl = ?", params[:pl]) if params[:pl].present?
+      @indl_details = @indl_details.where("indl_details.sec = ?", params[:sec]) if params[:sec].present?
+      @indl_details = @indl_details.where("indl_details.i_card_number = ?", params[:i_card_number]) if params[:i_card_number].present?
+      @indl_details = @indl_details.where("indl_details.blood_group = ?", params[:blood_group]) if params[:blood_group].present?
+      @indl_details = @indl_details.where("indl_details.appt = ?", params[:appt]) if params[:appt].present?
+      @indl_details = @indl_details.where("indl_details.dt_of_enrollment = ?", params[:dt_of_enrollment]) if params[:dt_of_enrollment].present?
+      @indl_details = @indl_details.where("indl_details.dt_of_marriage = ?", params[:dt_of_marriage]) if params[:dt_of_marriage].present?
+      @indl_details = @indl_details.where("indl_details.dscp_record = ?", params[:dscp_record]) if params[:dscp_record].present?
+      @indl_details = @indl_details.where("indl_details.mob_no_indl = ?", params[:mob_no_indl]) if params[:mob_no_indl].present?
+      @indl_details = @indl_details.where("indl_details.mob_no_res = ?", params[:mob_no_res]) if params[:mob_no_res].present?
+      @indl_details = @indl_details.where("indl_details.pan_no = ?", params[:pan_no]) if params[:pan_no].present?
+      @indl_details = @indl_details.where("indl_details.uid_no = ?", params[:uid_no]) if params[:uid_no].present?
+      @indl_details = @indl_details.where("indl_details.lve_plan = ?", params[:lve_plan]) if params[:lve_plan].present?
+      @indl_details = @indl_details.where("indl_details.location = ?", params[:location]) if params[:location].present?
+      @indl_details = @indl_details.where("indl_details.email_id = ?", params[:email_id]) if params[:email_id].present?
+      @indl_details = @indl_details.where("indl_details.address = ?", params[:address]) if params[:address].present?
     end
     @indl_details = @indl_details.page(params[:page]).per(75)
   end

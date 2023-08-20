@@ -1,34 +1,117 @@
 <div class="container">
   <h5 class="mt-4"> INDL DETAILS </h5>
   <br>
-	<%= render partial: "search_indl" %>
   <div class="table-responsive">
     <table class="table table-bordered">
       <thead class="bg-light">
-        <tr width='100%'>
-            <th width='8%' class="align-top">
-              <%= sort_link(@q, 'bn_nominal_roll_army_no', 'ARMY NO') %>
+        <tr>
+            <th class="align-top">
+              <%= sort_link(@q, :army_no, 'ARMY NO') %>
             </th>
-            <th width='5%' class="align-top">
-              <%= sort_link(@q, 'bn_nominal_roll_rank', 'RANK') %>
+            <th class="align-top">
+              <%= sort_link(@q, :rank, 'RANK') %>
             </th>
-            <th width='15%' class="align-top">
-              <%= sort_link(@q, 'bn_nominal_roll_name', 'NAME') %>
+            <th class="align-top">
+              <%= sort_link(@q, :name, 'NAME') %>
             </th>
-            <th width='8%' class="align-top">
-              <%= sort_link(@q, 'bn_nominal_roll_coy', 'COY') %>
+            <th class="align-top">
+              <%= sort_link(@q, :coy, 'COY') %>
             </th>
-            <th width='12%' class="align-top">
-              <%= sort_link(@q, :type_of_veh, 'TYPE OF VEH') %>
+            <th class="align-top">
+              <%= sort_link(@q, :trade, 'TRADE') %>
             </th>
-            <th width='8%' class="align-top">
-              <%= sort_link(@q, :veh_no, 'VEH NO') %>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_pl', 'PL') %>
             </th>
-            <th width='9%' class="align-top">
-              <%= sort_link(@q, :location, 'LOCATION') %>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_sec', 'SEC') %>
             </th>
-            <th width='10%' class="align-top">
-              <%= sort_link(@q, :remarks, 'REMARKS') %>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_i_card_number', 'I CARD NO') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_blood_group', 'BLOOD GROUP') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_appt', 'APPT') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :dob, 'DOB') %>
+            </th> 
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_dt_of_enrollment', 'DT OF ENROLLMENT') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :date_of_tos_in_unit, 'DATE OF TOS IN UNIT') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :pers_med_cat, 'PERS MED CAT') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :civ_edn, 'CIV EDN') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'army_courses_course', 'ARMY COURSE') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'army_courses_course_grading', 'COURSE GRADING') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'ere_details_ere_unit', 'ERE UNIT') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'ere_details_ere_location', 'ERE LOCATION') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'ere_details_date_of_sos_to_ere', 'ERE DATE OF SOS') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'ere_details_date_of_rtu_to_unit', 'ERE DATE OF RTU') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :marital_status, 'MARITAL STATUS') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'bn_family_member_detail_wife_name', 'WIFE NAME') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, :dt_of_marriage, 'DT OF MARRIAGE') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'bn_family_member_detail_no_of_children', 'NO OF CHILDREN') %>
+            </th>            
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_dscp_record', 'DSCP RECORD') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'awards_and_achievements_awards', 'AWARDS AND ACHIVEMENTS') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_mob_no_indl', 'MOBILE NO INDL') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_mob_no_res', 'MOBILE NO RES') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_pan_no', 'PAN NO') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_uid_no', 'UID NO') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_address', 'ADDRESS') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_lve_plan', 'LVE PLAN') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_location', 'LOCATION') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_email_id', 'EMAIL ID') %>
+            </th>
+            <th class="align-top">
+              <%= sort_link(@q, 'indl_detail_remarks', 'REMARKS') %>
             </th>
             <th width="5%">
             </th>
@@ -38,76 +121,157 @@
         <% @indl_details.each do | indl |%>
           <tr>
             <td>
-              <%= indl.bn_nominal_roll.army_no %>
+              <%= indl.army_no %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.rank %>
+              <%= indl.rank %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.name %>
+              <%= indl.name %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.trade %>
+              <%= indl.coy %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.coy %>
+              <%= indl.trade %>
             </td>
             <td>
-              <%= indl.pl %>
+              <%= indl.indl_detail.pl %>
             </td>
             <td>
-              <%= indl.sec %>
+              <%= indl.indl_detail.sec %>
             </td>
             <td>
-              <%= indl.i_card_number %>
+              <%= indl.indl_detail.i_card_number %>
             </td>
             <td>
-              <%= indl.blood_group %>
+              <%= indl.indl_detail.blood_group %>
             </td>
             <td>
-              <%= indl.appt %>
+              <%= indl.indl_detail.appt %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.dob %>
+              <%= indl.dob %>
             </td>
             <td>
-              <%= indl.dt_of_enrollment %>
+              <%= indl.indl_detail.dt_of_enrollment %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.date_of_tos_in_unit %>
+              <%= indl.date_of_tos_in_unit %>
             </td>
             <td>
-              <%= indl.bn_nominal_roll.pers_med_cat %>
+              <%= indl.pers_med_cat %>
             </td>
             <td>
-              <%= indl.dt_of_marriage %>
+              <%= indl.civ_edn %>
             </td>
             <td>
-              <%= indl.pl %>
+              <ul>
+                <% indl.army_courses.each do | a | %>
+                  <li> 
+                    <%= a.course %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.sec %>
+              <ul>
+                <% indl.army_courses.each do | a | %>
+                  <li> 
+                    <%= a.course_grading %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.i_card_number %>
+              <ul>
+                <% indl.ere_details.each do | a | %>
+                  <li> 
+                    <%= a.ere_unit %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.blood_group %>
+              <ul>
+                <% indl.ere_details.each do | a | %>
+                  <li> 
+                    <%= a.ere_location %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.appt %>
+              <ul>
+                <% indl.ere_details.each do | a | %>
+                  <li> 
+                    <%= a.date_of_sos_to_ere %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.appt %>
+              <ul>
+                <% indl.ere_details.each do | a | %>
+                  <li> 
+                    <%= a.date_of_rtu_to_unit %>
+                  </li>
+                <% end %>
+              </ul>
             </td>
             <td>
-              <%= indl.dt_of_enrollment %>
-            </td>					
-            <td>
-              <%= indl.remarks %>
+              <%= indl.marital_status %>
             </td>
             <td>
-              <%= link_to "Edit", bn_nominal_roll_path(indl.bn_nominal_roll)%>
+              <%= indl.bn_family_member_detail.wife_name %>
+            </td>
+            <td>
+              <%= indl.indl_detail.dt_of_marriage %>
+            </td>
+            <td>
+              <%= indl.bn_family_member_detail.no_of_children %>
+            </td>
+            <td>
+              <%= indl.indl_detail.dscp_record %>
+            </td>
+            <td>
+              <ul>
+                <% indl.awards_and_achievements.each do | a | %>
+                  <li> 
+                    <%= a.awards %>
+                  </li>
+                <% end %>
+              </ul>
+            </td>
+            <td>
+              <%= indl.indl_detail.mob_no_indl %>
+            </td>
+            <td>
+              <%= indl.indl_detail.mob_no_res  %>
+            </td>
+            <td>
+              <%= indl.indl_detail.pan_no %>
+            </td>
+            <td>
+              <%= indl.indl_detail.uid_no %>
+            </td>
+            <td>
+              <%= indl.indl_detail.address %>
+            </td>	
+            <td>
+              <%= indl.indl_detail.lve_plan %>
+            </td>
+            <td>
+              <%= indl.indl_detail.location %>
+            </td>
+            <td>
+              <%= indl.indl_detail.email_id %>
+            </td>
+            <td>
+              <%= indl.indl_detail.remarks %>
+            </td>
+            <td>
+              <%= link_to "Edit", bn_nominal_roll_path(indl)%>
             </td>
           </tr>
         <% end %> 
