@@ -2,7 +2,7 @@
 	<div class="row mb-3">
 		<div class="col-12">
 			<%= form_with(method: "get", url: indl_details_bn_nominal_rolls_path, remote: true) do |f| %>
-				<div class="row form-group mb-4">
+				<div class="row form-group mb-2">
 						<div class="col-1">
 								<%= f.label :coy, "COY:" %>
 						</div>
@@ -12,24 +12,94 @@
 				</div>
 				<div class="row form-group">
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :army_no, class: "form-control", placeholder: "Army No", autofocus: true, value: params[:army_no] %>
+						<%= f.text_field :army_no, class: "form-control", placeholder: "ARMY NO", autofocus: true, value: params[:army_no] %>
 					</div>
 					<div class="col-1 px-1 my-1">
-						<%= f.text_field :rank, class: "form-control", placeholder: "Rank", value: params[:rank] %>
+						<%= f.text_field :rank, class: "form-control", placeholder: "RANK", value: params[:rank] %>
 					</div>
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :name, class: "form-control", placeholder: "Name", value: params[:name] %>
+						<%= f.text_field :name, class: "form-control", placeholder: "NAME", value: params[:name] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :trade, class: "form-control", placeholder: "TRADE", value: params[:trade] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :date_of_tos_in_unit, class: "form-control", placeholder: "DT TOS IN UNIT", value: params[:date_of_tos_in_unit] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :dob, class: "form-control", placeholder: "DOB", value: params[:dob] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :civ_edn, class: "form-control", placeholder: "CIV EDN", value: params[:civ_edn] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :marital_status, class: "form-control", placeholder: "MARITAL STATUS", value: params[:marital_status] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :pl, class: "form-control", placeholder: "PL", value: params[:pl] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :sec, class: "form-control", placeholder: "SEC", value: params[:sec] %>
 					</div>
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :type_of_veh, class: "form-control", placeholder: "TYPE OF VEH", value: params[:type_of_veh] %>
+						<%= f.text_field :i_card_number, class: "form-control", placeholder: "I CARD NO", value: params[:i_card_number] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :blood_group, class: "form-control", placeholder: "BLOOD GP", value: params[:blood_group] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :appt, class: "form-control", placeholder: "APPT", value: params[:appt] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :dt_of_enrollment, class: "form-control", placeholder: "DT ENROLL", value: params[:dt_of_enrollment] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :dt_of_marriage, class: "form-control", placeholder: "DT MARRIAGE", value: params[:dt_of_marriage] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :dscp_record, class: "form-control", placeholder: "DSCP RECORD", value: params[:dscp_record] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :mob_no_indl, class: "form-control", placeholder: "MOB INDL", value: params[:mob_no_indl] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :mob_no_res, class: "form-control", placeholder: "MOB RES", value: params[:mob_no_res] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :pan_no, class: "form-control", placeholder: "PAN NO", value: params[:pan_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :uid_no, class: "form-control", placeholder: "UID NO", value: params[:uid_no] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :lve_plan, class: "form-control", placeholder: "LVE PLAN", value: params[:lve_plan] %>
 					</div>
 					<div class="col-2 px-1 my-1">
-						<%= f.text_field :veh_no, class: "form-control", placeholder: "VEH NO", value: params[:veh_no] %>
+						<%= f.text_field :email_id, class: "form-control", placeholder: "EMAIL ID", value: params[:email_id] %>
 					</div>
-					<div class="col-2 px-1 my-1">
-						<%= f.text_field :location, class: "form-control", placeholder: "LOCTAION", value: params[:location] %>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :location, class: "form-control", placeholder: "LOACTION", value: params[:location] %>
 					</div>
-					<div class="col-10 px-1 d-flex justify-content-end my-1">
+
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :ere_unit, class: "form-control", placeholder: "ERE UNIT", value: params[:ere_unit] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :ere_location, class: "form-control", placeholder: "ERE LOCATION", value: params[:ere_location] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :course, class: "form-control", placeholder: "ARMY COURSE", value: params[:course] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :course_grading, class: "form-control", placeholder: "COURSE GRADING", value: params[:course_grading] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :wife_name, class: "form-control", placeholder: "WIFE NAME", value: params[:wife_name] %>
+					</div>
+					<div class="col-1 px-1 my-1">
+						<%= f.text_field :awards, class: "form-control", placeholder: "AWARDS", value: params[:awards] %>
+					</div>
+					<div class="col-2 px-1 d-flex justify-content-end my-1">
 						<%= f.submit "Search", class: "btn btn-secondary" %>
 					</div>
 					<div class="col-1 px-1 d-flex justify-content-end my-1">

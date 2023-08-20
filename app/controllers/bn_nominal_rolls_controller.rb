@@ -254,6 +254,7 @@ class BnNominalRollsController < ApplicationController
       @indl_details = @indl_details.where(civ_edn: params[:civ_edn]) if params[:civ_edn].present?
       @indl_details = @indl_details.where(marital_status: params[:marital_status]) if params[:marital_status].present?
       @indl_details = @indl_details.where(coy: params[:coy]) if params[:coy].present? && !(params[:coy] == "ALL")
+
       @indl_details = @indl_details.where("indl_details.pl = ?", params[:pl]) if params[:pl].present?
       @indl_details = @indl_details.where("indl_details.sec = ?", params[:sec]) if params[:sec].present?
       @indl_details = @indl_details.where("indl_details.i_card_number = ?", params[:i_card_number]) if params[:i_card_number].present?
@@ -269,7 +270,16 @@ class BnNominalRollsController < ApplicationController
       @indl_details = @indl_details.where("indl_details.lve_plan = ?", params[:lve_plan]) if params[:lve_plan].present?
       @indl_details = @indl_details.where("indl_details.location = ?", params[:location]) if params[:location].present?
       @indl_details = @indl_details.where("indl_details.email_id = ?", params[:email_id]) if params[:email_id].present?
-      @indl_details = @indl_details.where("indl_details.address = ?", params[:address]) if params[:address].present?
+
+      @indl_details = @indl_details.where("ere_details.ere_unit = ?", params[:ere_unit]) if params[:ere_unit].present?
+      @indl_details = @indl_details.where("ere_details.ere_location = ?", params[:ere_location]) if params[:ere_location].present?
+
+      @indl_details = @indl_details.where("army_courses.course = ?", params[:course]) if params[:course].present?
+      @indl_details = @indl_details.where("army_courses.course_grading = ?", params[:course_grading]) if params[:course_grading].present?
+
+      @indl_details = @indl_details.where("bn_family_member_details.wife_name = ?", params[:wife_name]) if params[:wife_name].present?
+      @indl_details = @indl_details.where("awards_and_achievements.awards = ?", params[:awards]) if params[:awards].present?
+
     end
     @indl_details = @indl_details.page(params[:page]).per(75)
   end
