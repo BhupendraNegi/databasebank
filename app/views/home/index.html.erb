@@ -3,13 +3,23 @@
 		<div class="container bg-danger rounded-top text-light m-0 p-0">
 			<div class="border border-danger rounded-top ">
 				<div class="border border-white rounded-top ">
-					<div class="d-flex justify-content-between p-2 mx-3 mt-1">
-						<h5>
-							<b>JAI BADRI VISHAL </b>
-						</h5>
-						<h5>
-							<b>THE MAGNIFICIENT EIGHTH </b>
-						</h5>
+					<div class="d-flex justify-content-between p-2 mt-1">
+						<div class="col-1 mr-0 pr-0">
+							<%= image_tag 'gabru.png', alt: 'Army Rewards', class: 'col-6', style: "max-width: 30%;  height: 100%" %>
+						</div>
+						<div class="col-5 d-flex justify-content-start mt-4">
+							<h4>
+								<b>JAI BADRI VISHAL </b>
+							</h4>
+						</div>
+						<div class="col-5 d-flex justify-content-end mt-4">
+							<h4>
+								<b>THE MAGNIFICIENT EIGHTH </b>
+							</h4>
+						</div>
+						<div class="col-1 d-flex justify-content-end">
+							<%= image_tag 'gabru.png', alt: 'Army Rewards', class: 'col-6', style: "max-width: 30%;  height: 100%" %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -20,83 +30,90 @@
 				<div class="border border-white rounded-bottom ">
 					<div class="border border-danger rounded-bottom ">
 						<div class="container h-100"> 
-							<div class="d-flex justify-content-end m-2">
-								<%= link_to "+ ADD DATA", new_bn_nominal_roll_path, class: "btn btn-success"%>
+							<br>
+							<div class="d-flex justify-content-between m-2">
+								<div class="col-3">
+									<div class="d-flex justify-content-start">
+										<h6 class="bg-dark p-1 border p-2">
+											<b> <%= Time.now.strftime("%d %B %Y, %A")  %> </b>
+										</h6>
+									</div>
 								</div>
-								<br>
-								<div class="d-flex justify-content-end m-2">
-									<h6 class="bg-dark p-1 border p-2">
-										<b> <%= Time.now.strftime("%d %B %Y, %A")  %> </b>
-									</h6>
+								<%= image_tag 'golden.png', alt: 'Army Rewards', class: 'col-6', style: "max-width: 8%;  height: 10%" %>
+								<div class="col-3">
+									<div class="d-flex justify-content-end">
+										<%= link_to "+ ADD DATA", new_bn_nominal_roll_path, class: "btn btn-warning"%>
+									</div>
 								</div>
 							</div>
-
-							<div class="d-flex flex-row text-dark">
-								<div class="col-3">
-									<div class="row mx-3 mb-3">
-										<%= link_to "BN NOMINAL ROLL", bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3 ">
-										<%= link_to "COY NOMINAL ROLL", coy_nominal_roll_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "COY LEAVE DETAILS", coy_leave_detail_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">									
-										<%= link_to "BN LMC PERS", bn_lmc_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>									
-									<div class="row mx-3 mb-3">
-										<%= link_to "ERE DETAILS", ere_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "ARMY COURSES", army_courses_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "BN SPORTS TEAM", bn_sports_teams_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "BN PUNISHMENT PERS", bn_punishment_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "PERS IN MH", pers_in_mhs_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-start p-2" %>
-									</div>									
+							<br>
+							<br>
+						</div>
+						<div class="d-flex flex-row text-dark">
+							<div class="col-3">
+								<div class="row mx-3 mb-3">
+									<%= link_to "BN NOMINAL ROLL", bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
 								</div>
-								<div class="col-6">
-									<div class="row mx-3 mb-3">
-									</div>
+								<div class="row mx-3 mb-3 ">
+									<%= link_to "COY NOMINAL ROLL", coy_nominal_roll_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
 								</div>
-								<div class="col-3">
-									<div class="row mx-3 mb-3">
-										<%= link_to "ATT PERS", att_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "INDL VEH DETAILS", indl_veh_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "INDL DETAILS", indl_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "BN FAMILY MEMBER DETAILS", bn_family_member_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>									
-									<div class="row mx-3 mb-3">
-										<%= link_to "AWARDS AND ACHIEVEMENTS", awards_and_achievements_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "COR DRINKER / NON DRINKER", cor_drinker_non_drinkers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "LEAVE STATE", leave_states_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "MAX HEALTH REPORT", max_health_reports_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>
-									</div>
-									<div class="row mx-3 mb-3">
-										<%= link_to "PARADE STATE", parade_state_of_units_path, method: "get", remote: true, class: "btn btn-success text-end p-2" %>											
-										</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "COY LEAVE DETAILS", coy_leave_detail_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">									
+									<%= link_to "BN LMC PERS", bn_lmc_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>									
+								<div class="row mx-3 mb-3">
+									<%= link_to "ERE DETAILS", ere_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "ARMY COURSES", army_courses_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "BN SPORTS TEAM", bn_sports_teams_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "BN PUNISHMENT PERS", bn_punishment_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "PERS IN MH", pers_in_mhs_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-start p-2" %>
+								</div>									
+							</div>
+							<div class="col-6 d-flex justify-content-center">
+								<%= image_tag 'army_reward.jpg', alt: 'Army Rewards', class: 'border rounded', style: "max-width: 80%;  height: 65%" %>
+							</div>
+							<div class="col-3">
+								<div class="row mx-3 mb-3">
+									<%= link_to "ATT PERS", att_pers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "INDL VEH DETAILS", indl_veh_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "INDL DETAILS", indl_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "BN FAMILY MEMBER DETAILS", bn_family_member_details_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>									
+								<div class="row mx-3 mb-3">
+									<%= link_to "AWARDS AND ACHIEVEMENTS", awards_and_achievements_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "COR DRINKER / NON DRINKER", cor_drinker_non_drinkers_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "LEAVE STATE", leave_states_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "MAX HEALTH REPORT", max_health_reports_bn_nominal_rolls_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>
+								</div>
+								<div class="row mx-3 mb-3">
+									<%= link_to "PARADE STATE", parade_state_of_units_path, method: "get", remote: true, class: "btn btn-outline-success text-end p-2" %>											
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
