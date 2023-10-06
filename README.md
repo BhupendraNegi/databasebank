@@ -1,28 +1,17 @@
-# README
+# Database Bank
+* It is a small website for the Data Management of the Army Personal Details
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requirements
+* Ruby 3.2.2
+* Rails 7
+* Mysql
 
-Things you may want to cover:
+### Setup Guide
+* bundle install
+* bin/rake db:setup
+* bin/rake db:migrate
+* bin/rake db:seed
+* bin/rails s
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-bin/rake db:setup
-bin/rake db:migrate
-bin/rake db:seed
+![Image of Home Page](https://github.com/BhupendraNegi/databasebank/blob/main/app/assets/images/home.png)
+![Image of Entry](https://github.com/BhupendraNegi/databasebank/blob/main/app/assets/images/entry.png)
