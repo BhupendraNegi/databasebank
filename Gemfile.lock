@@ -266,6 +266,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-22
 
 DEPENDENCIES
   bootsnap
@@ -294,7 +295,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 3.2.2p53
 
 BUNDLED WITH
-   2.3.8
+   2.4.20
